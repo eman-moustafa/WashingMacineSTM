@@ -59,7 +59,7 @@ Project {
     }
 
     FontFiles {
-        files: []
+        files: ["fonts/English/Mont-Black.ttf"]
     }
 
     TranslationFiles {

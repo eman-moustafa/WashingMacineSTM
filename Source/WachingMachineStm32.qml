@@ -43,13 +43,11 @@ Item{
                 anchors.centerIn: parent
 
                     Row {
-                               id: row1
-                               width: parent.width
-                               height:parent.height/2
-                               spacing: 20
-
-
-                                   Button {
+                        id: row1
+                        width: parent.width
+                        height:parent.height/2
+                        spacing: 20
+                        Button {
                                        width: parent.width/4
                                        height: parent.height/2
                                        contentItem: Row {
@@ -64,11 +62,10 @@ Item{
                                                       anchors.verticalCenter: parent.verticalCenter
                                                   }
                                            Text {
-                                                     text: "DARKs \n 90 \n min"
+                                                     text: "DARKs\n غامق \n 90 \n min"
                                                      color: "white"              // Initial text color
                                                      font.pixelSize: 17
                                                      anchors.right: parent.right
-
                                            }
                                }
 
@@ -717,7 +714,7 @@ Item{
         id: flickableContentCottonPage
         width: 800 // Screen width
         height: 472 // Screen height
-        contentWidth: 1700 // Width of the scrollable content
+        contentWidth: 1000 // Width of the scrollable content
         contentHeight: height // Match the screen height for horizontal scrolling
         anchors.topMargin: 100
         clip: true // Ensure the content is clipped to the Flickable's area
@@ -789,14 +786,14 @@ Item{
 
             Row
             {
-                width: parent.width
-                height:(parent.height*2)/3
-                 anchors.left: btn_cottoninCottPage.left
-                 anchors.bottomMargin: 50
-                 spacing: 20
+                width: parent.width*2/3
+                height:parent.height/3
+                //anchors.bottomMargin: 50
+                anchors.right: parent.right
+                anchors.centerIn: parent
                  Column{
                      id:col_washTimeinCottPage
-                     width:120
+                     width:250
                      anchors.left: parent.left
                      spacing: 20
                      Text {
@@ -808,8 +805,8 @@ Item{
 
                      }
                      Item {
-                         width: 120
-                         height: 100
+                         width: 250
+                         height: 250
 
                          anchors.centerIn: parent
                          // Circular Progress Indicator
@@ -817,8 +814,8 @@ Item{
                          Rectangle {
                              id:dialinCottPage
                              anchors.centerIn: parent
-                             width: 100
-                             height: 100
+                             width: 200
+                             height: 200
                              radius: width / 2
                              color: "#2588BF"
                              //border.color: "blue"
@@ -833,8 +830,8 @@ Item{
 
                              Rectangle {
                                  anchors.centerIn: parent
-                                 width: 75
-                                 height: 75
+                                 width: 150
+                                 height: 150
                                  radius: width / 2
                                  //border.color: "blue"
                                 // border.width: 8
@@ -884,7 +881,7 @@ Item{
 
                  Column{
                      id:col_waterTempinCottPage
-                     width:100
+                     width:250
                      anchors.left: col_washTimeinCottPage.right
                      spacing: 20
                      Text {
@@ -896,8 +893,8 @@ Item{
 
                      }
                      Item {
-                         width: 100
-                         height: 100
+                         width: 250
+                         height: 250
 
                          anchors.centerIn: parent
                          // Circular Progress Indicator
@@ -905,8 +902,8 @@ Item{
                          Rectangle {
                              id:dialWaterTempinCottPage
                              anchors.centerIn: parent
-                             width: 100
-                             height: 100
+                             width: 200
+                             height: 200
                              radius: width / 2
                              color: "#B81219"
                              //border.color: "blue"
@@ -921,8 +918,8 @@ Item{
 
                              Rectangle {
                                  anchors.centerIn: parent
-                                 width: 75
-                                 height: 75
+                                 width: 150
+                                 height: 150
                                  radius: width / 2
                                  //border.color: "blue"
                                 // border.width: 8
@@ -972,7 +969,7 @@ Item{
 
                  Column{
                      id:col_waterLevelinCottPage
-                     width:120
+                     width:250
                      anchors.left: col_waterTempinCottPage.right
                      spacing: 20
                      Text {
@@ -984,8 +981,8 @@ Item{
 
                      }
                      Item {
-                         width: 120
-                         height: 100
+                         width: 250
+                         height: 250
 
                          anchors.centerIn: parent
                          // Circular Progress Indicator
@@ -993,8 +990,8 @@ Item{
                          Rectangle {
                              id:dialWaterLevelinCottPage
                              anchors.centerIn: parent
-                             width: 100
-                             height: 100
+                             width: 200
+                             height: 200
                              radius: width / 2
                              color: "#fff"
                              //border.color: "blue"
@@ -1009,8 +1006,8 @@ Item{
 
                              Rectangle {
                                  anchors.centerIn: parent
-                                 width: 75
-                                 height: 75
+                                 width: 150
+                                 height: 150
                                  radius: width / 2
                                  //border.color: "blue"
                                 // border.width: 8
@@ -1060,7 +1057,7 @@ Item{
 
                  Column{
                      id:col_waterTempretureinCottPage
-                     width:120
+                     width:250
                      anchors.left: col_waterLevelinCottPage.right
                      spacing: 20
                      Text {
@@ -1072,8 +1069,8 @@ Item{
 
                      }
                      Item {
-                         width: 120
-                         height: 100
+                         width: 250
+                         height: 250
 
                          anchors.centerIn: parent
                          // Circular Progress Indicator
@@ -1081,8 +1078,8 @@ Item{
                          Rectangle {
                              id:dialWaterTempretureinCottPage
                              anchors.centerIn: parent
-                             width: 100
-                             height: 100
+                             width: 200
+                             height: 200
                              radius: width / 2
                              color: "#2F2780"
                              //border.color: "blue"
@@ -1097,8 +1094,8 @@ Item{
 
                              Rectangle {
                                  anchors.centerIn: parent
-                                 width: 75
-                                 height: 75
+                                 width: 150
+                                 height: 150
                                  radius: width / 2
                                  //border.color: "blue"
                                 // border.width: 8

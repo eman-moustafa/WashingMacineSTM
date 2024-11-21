@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 14.0.2, 2024-11-20T19:22:35. -->
+<!-- Written by QtCreator 14.0.2, 2024-11-21T14:05:19. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -109,16 +109,16 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/gcc.exe
--DQUL_PLATFORM:STRING=qt
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_BUILD_TYPE:STRING=Debug
--DQUL_COMPILER_NAME:STRING=gnu
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1
+    <value type="QString" key="CMake.Initial.Parameters">-DQUL_COMPILER_NAME:STRING=gnu
+-DCMAKE_C_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/gcc.exe
+-DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake
 -DQUL_COLOR_DEPTH:STRING=32
 -DCMAKE_CXX_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/g++.exe
--DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake</value>
+-DCMAKE_BUILD_TYPE:STRING=Debug
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_GENERATOR:STRING=Ninja
+-DQUL_PLATFORM:STRING=qt
+-DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\eabdel120\WachingMachineStm32\build\Qt_for_MCUs_2_8_Desktop_32bpp_MINGW-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
@@ -167,16 +167,16 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/gcc.exe
--DQUL_PLATFORM:STRING=qt
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_BUILD_TYPE:STRING=Release
--DQUL_COMPILER_NAME:STRING=gnu
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1
+    <value type="QString" key="CMake.Initial.Parameters">-DQUL_COMPILER_NAME:STRING=gnu
+-DCMAKE_C_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/gcc.exe
+-DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake
 -DQUL_COLOR_DEPTH:STRING=32
 -DCMAKE_CXX_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/g++.exe
--DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake</value>
+-DCMAKE_BUILD_TYPE:STRING=Release
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_GENERATOR:STRING=Ninja
+-DQUL_PLATFORM:STRING=qt
+-DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\eabdel120\WachingMachineStm32\build\Qt_for_MCUs_2_8_Desktop_32bpp_MINGW-Release</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
@@ -223,16 +223,16 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/gcc.exe
--DQUL_PLATFORM:STRING=qt
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
--DQUL_COMPILER_NAME:STRING=gnu
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1
+    <value type="QString" key="CMake.Initial.Parameters">-DQUL_COMPILER_NAME:STRING=gnu
+-DCMAKE_C_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/gcc.exe
+-DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake
 -DQUL_COLOR_DEPTH:STRING=32
 -DCMAKE_CXX_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/g++.exe
--DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake</value>
+-DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_GENERATOR:STRING=Ninja
+-DQUL_PLATFORM:STRING=qt
+-DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\eabdel120\WachingMachineStm32\build\Qt_for_MCUs_2_8_Desktop_32bpp_MINGW-RelWithDebInfo</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
@@ -279,16 +279,16 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/gcc.exe
--DQUL_PLATFORM:STRING=qt
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
--DQUL_COMPILER_NAME:STRING=gnu
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1
+    <value type="QString" key="CMake.Initial.Parameters">-DQUL_COMPILER_NAME:STRING=gnu
+-DCMAKE_C_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/gcc.exe
+-DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake
 -DQUL_COLOR_DEPTH:STRING=32
 -DCMAKE_CXX_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/g++.exe
--DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake</value>
+-DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_GENERATOR:STRING=Ninja
+-DQUL_PLATFORM:STRING=qt
+-DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1</value>
     <value type="int" key="EnableQmlDebugging">0</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\eabdel120\WachingMachineStm32\build\Qt_for_MCUs_2_8_Desktop_32bpp_MINGW-Profile</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
@@ -336,16 +336,16 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/gcc.exe
--DQUL_PLATFORM:STRING=qt
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_BUILD_TYPE:STRING=MinSizeRel
--DQUL_COMPILER_NAME:STRING=gnu
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1
+    <value type="QString" key="CMake.Initial.Parameters">-DQUL_COMPILER_NAME:STRING=gnu
+-DCMAKE_C_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/gcc.exe
+-DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake
 -DQUL_COLOR_DEPTH:STRING=32
 -DCMAKE_CXX_COMPILER:STRING=C:/Qt/QtForMcu/Tools/mingw1120_64/bin/g++.exe
--DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake</value>
+-DCMAKE_BUILD_TYPE:STRING=MinSizeRel
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_GENERATOR:STRING=Ninja
+-DQUL_PLATFORM:STRING=qt
+-DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\eabdel120\WachingMachineStm32\build\Qt_for_MCUs_2_8_Desktop_32bpp_MINGW-MinSizeRel</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
@@ -472,18 +472,18 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
--DQUL_PLATFORM:STRING=stm32f769i-discovery-baremetal
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_BUILD_TYPE:STRING=Debug
--DCMAKE_TOOLCHAIN_FILE:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1\lib\cmake\Qul\toolchain\armgcc.cmake
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1
--DQUL_COLOR_DEPTH:STRING=32
+    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_TOOLCHAIN_FILE:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1\lib\cmake\Qul\toolchain\armgcc.cmake
+-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
+-DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake
 -DQUL_TARGET_TOOLCHAIN_DIR:STRING=C:\Qt\QtForMcu\Tools\QtMCUs\arm_gcc_12_3_1
+-DQUL_COLOR_DEPTH:STRING=32
 -DCMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}
 -DQUL_BOARD_SDK_DIR:STRING=C:\Qt\QtForMcu\Tools\QtMCUs\STM\STM32Cube_FW_F7_V1.17.1
--DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake</value>
+-DCMAKE_BUILD_TYPE:STRING=Debug
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_GENERATOR:STRING=Ninja
+-DQUL_PLATFORM:STRING=stm32f769i-discovery-baremetal
+-DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\eabdel120\WachingMachineStm32\build\Qt_for_MCUs_2_8_STM32F769I_DISCOVERY_BAREMETAL_32bpp_ARMGCC-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
@@ -532,18 +532,18 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
--DQUL_PLATFORM:STRING=stm32f769i-discovery-baremetal
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_BUILD_TYPE:STRING=Release
--DCMAKE_TOOLCHAIN_FILE:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1\lib\cmake\Qul\toolchain\armgcc.cmake
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1
--DQUL_COLOR_DEPTH:STRING=32
+    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_TOOLCHAIN_FILE:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1\lib\cmake\Qul\toolchain\armgcc.cmake
+-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
+-DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake
 -DQUL_TARGET_TOOLCHAIN_DIR:STRING=C:\Qt\QtForMcu\Tools\QtMCUs\arm_gcc_12_3_1
+-DQUL_COLOR_DEPTH:STRING=32
 -DCMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}
 -DQUL_BOARD_SDK_DIR:STRING=C:\Qt\QtForMcu\Tools\QtMCUs\STM\STM32Cube_FW_F7_V1.17.1
--DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake</value>
+-DCMAKE_BUILD_TYPE:STRING=Release
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_GENERATOR:STRING=Ninja
+-DQUL_PLATFORM:STRING=stm32f769i-discovery-baremetal
+-DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\eabdel120\WachingMachineStm32\build\Qt_for_MCUs_2_8_STM32F769I_DISCOVERY_BAREMETAL_32bpp_ARMGCC-Release</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
@@ -590,18 +590,18 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
--DQUL_PLATFORM:STRING=stm32f769i-discovery-baremetal
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
--DCMAKE_TOOLCHAIN_FILE:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1\lib\cmake\Qul\toolchain\armgcc.cmake
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1
--DQUL_COLOR_DEPTH:STRING=32
+    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_TOOLCHAIN_FILE:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1\lib\cmake\Qul\toolchain\armgcc.cmake
+-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
+-DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake
 -DQUL_TARGET_TOOLCHAIN_DIR:STRING=C:\Qt\QtForMcu\Tools\QtMCUs\arm_gcc_12_3_1
+-DQUL_COLOR_DEPTH:STRING=32
 -DCMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}
 -DQUL_BOARD_SDK_DIR:STRING=C:\Qt\QtForMcu\Tools\QtMCUs\STM\STM32Cube_FW_F7_V1.17.1
--DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake</value>
+-DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_GENERATOR:STRING=Ninja
+-DQUL_PLATFORM:STRING=stm32f769i-discovery-baremetal
+-DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\eabdel120\WachingMachineStm32\build\Qt_for_MCUs_2_8_STM32F769I_DISCOVERY_BAREMETAL_32bpp_ARMGCC-RelWithDebInfo</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
@@ -648,18 +648,18 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
--DQUL_PLATFORM:STRING=stm32f769i-discovery-baremetal
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
--DCMAKE_TOOLCHAIN_FILE:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1\lib\cmake\Qul\toolchain\armgcc.cmake
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1
--DQUL_COLOR_DEPTH:STRING=32
+    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_TOOLCHAIN_FILE:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1\lib\cmake\Qul\toolchain\armgcc.cmake
+-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
+-DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake
 -DQUL_TARGET_TOOLCHAIN_DIR:STRING=C:\Qt\QtForMcu\Tools\QtMCUs\arm_gcc_12_3_1
+-DQUL_COLOR_DEPTH:STRING=32
 -DCMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}
 -DQUL_BOARD_SDK_DIR:STRING=C:\Qt\QtForMcu\Tools\QtMCUs\STM\STM32Cube_FW_F7_V1.17.1
--DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake</value>
+-DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_GENERATOR:STRING=Ninja
+-DQUL_PLATFORM:STRING=stm32f769i-discovery-baremetal
+-DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1</value>
     <value type="int" key="EnableQmlDebugging">0</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\eabdel120\WachingMachineStm32\build\Qt_for_MCUs_2_8_STM32F769I_DISCOVERY_BAREMETAL_32bpp_ARMGCC-Profile</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
@@ -707,18 +707,18 @@
     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>
     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>
     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>
-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
--DQUL_PLATFORM:STRING=stm32f769i-discovery-baremetal
--DCMAKE_GENERATOR:STRING=Ninja
--DCMAKE_BUILD_TYPE:STRING=MinSizeRel
--DCMAKE_TOOLCHAIN_FILE:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1\lib\cmake\Qul\toolchain\armgcc.cmake
--DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
--DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1
--DQUL_COLOR_DEPTH:STRING=32
+    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_TOOLCHAIN_FILE:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1\lib\cmake\Qul\toolchain\armgcc.cmake
+-DCMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
+-DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake
 -DQUL_TARGET_TOOLCHAIN_DIR:STRING=C:\Qt\QtForMcu\Tools\QtMCUs\arm_gcc_12_3_1
+-DQUL_COLOR_DEPTH:STRING=32
 -DCMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}
 -DQUL_BOARD_SDK_DIR:STRING=C:\Qt\QtForMcu\Tools\QtMCUs\STM\STM32Cube_FW_F7_V1.17.1
--DQUL_GENERATORS:STRING=C:/Qt/QtForMcu/QtMCUs/2.8.1/lib/cmake/Qul/QulGenerators.cmake</value>
+-DCMAKE_BUILD_TYPE:STRING=MinSizeRel
+-DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake
+-DCMAKE_GENERATOR:STRING=Ninja
+-DQUL_PLATFORM:STRING=stm32f769i-discovery-baremetal
+-DQul_ROOT:STRING=C:\Qt\QtForMcu\QtMCUs\2.8.1</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\eabdel120\WachingMachineStm32\build\Qt_for_MCUs_2_8_STM32F769I_DISCOVERY_BAREMETAL_32bpp_ARMGCC-MinSizeRel</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
