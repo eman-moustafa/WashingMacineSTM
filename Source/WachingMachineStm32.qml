@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 
-Item{
+Rectangle{
     id:root
     property bool buttonSpinClicked: false
     property bool buttonExtraSpinClicked: false
@@ -11,13 +11,26 @@ Item{
     property bool buttonSoakClicked: false
     property bool buttonDelayStartClicked: false
     width: 800
-    height: 472
+    height: 500
+
+    gradient: Gradient {
+        GradientStop {
+            position: 0.0
+            color: "#1b517a"
+        } // Left color
+        GradientStop {
+            position: 1.0
+            color: "#0e0f10"
+        } // Right color
+        orientation: Gradient.Horizontal
+    }
+
 
 
     Flickable {
         id: flickableContentPage1
         width: 800 // Screen width
-        height: 472 // Screen height
+        height: 500 // Screen height
         contentWidth: 1700 // Width of the scrollable content
         contentHeight: height // Match the screen height for horizontal scrolling
         anchors.topMargin: 100
@@ -27,18 +40,24 @@ Item{
 
         Rectangle{
             width:1700
-            height:472
+            height:500
             anchors.fill: parent
             gradient: Gradient {
-                   GradientStop { position: 0.0; color: "#1B5178" }
-                   GradientStop { position: 1.0; color: "#000" }
-                   orientation: Gradient.Horizontal
-               }
+                GradientStop {
+                    position: 0.0
+                    color: "#1b517a"
+                } // Left color
+                GradientStop {
+                    position: 1.0
+                    color: "#0e0f10"
+                } // Right color
+                orientation: Gradient.Horizontal
+            }
 
             Column
             {
                 width: 800 // Match Flickable's width
-                height: 472
+                height: 500
                 spacing: 20 // Space between rows
                 anchors.centerIn: parent
 
@@ -66,6 +85,7 @@ Item{
                                                      color: "white"              // Initial text color
                                                      font.pixelSize: 17
                                                      anchors.right: parent.right
+                                                    //font.family: "MontBlack.ttf"
                                            }
                                }
 
@@ -713,23 +733,29 @@ Item{
     Flickable{
         id: flickableContentCottonPage
         width: 800 // Screen width
-        height: 472 // Screen height
-        contentWidth: 1000 // Width of the scrollable content
+        height:500  // Screen height
+        contentWidth : 1700 // Width of the scrollable content
         contentHeight: height // Match the screen height for horizontal scrolling
-        anchors.topMargin: 100
+        //anchors.topMargin: 100
         clip: true // Ensure the content is clipped to the Flickable's area
 
         visible: false
         Rectangle{
 
             width:1700
-            height:472
+            height:500
             anchors.fill: parent
             gradient: Gradient {
-                   GradientStop { position: 0.0; color: "#1B5178" }
-                   GradientStop { position: 1.0; color: "#000" }
-                   orientation: Gradient.Horizontal
-               }
+                GradientStop {
+                    position: 0.0
+                    color: "#1b517a"
+                } // Left color
+                GradientStop {
+                    position: 1.0
+                    color: "#0e0f10"
+                } // Right color
+                orientation: Gradient.Horizontal
+            }
 
             Button {
                 id:btn_cottoninCottPage
@@ -737,7 +763,7 @@ Item{
                 height:( parent.height)/3
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 100
+                anchors.bottomMargin: 50
                 anchors.leftMargin: 50
 
                 contentItem: Row {
@@ -758,9 +784,6 @@ Item{
                               font.pixelSize: 17
                               anchors.right: parent.right
                               anchors.verticalCenter: parent.verticalCenter
-
-
-
                     }
         }
 
@@ -780,18 +803,19 @@ Item{
                                                                   flickableContentPage1.visible = true;
                                                                   flickableContentCottonPage.visible = false;
                                                                  }
-
         }
-
 
             Row
             {
                 width: parent.width*2/3
                 height:parent.height/3
-                //anchors.bottomMargin: 50
-                anchors.right: parent.right
+                anchors.bottomMargin: 50
+                spacing: 20
+                //anchors.right: parent.right
+                anchors.right:btn_cottoninCottPage.right
                 anchors.centerIn: parent
-                 Column{
+
+                Column{
                      id:col_washTimeinCottPage
                      width:250
                      anchors.left: parent.left
@@ -802,15 +826,12 @@ Item{
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
                          verticalAlignment: Text.AlignVCenter   // Vertically center the text
-
                      }
                      Item {
-                         width: 250
-                         height: 250
-
+                         width: 200
+                         height: 200
                          anchors.centerIn: parent
                          // Circular Progress Indicator
-
                          Rectangle {
                              id:dialinCottPage
                              anchors.centerIn: parent
@@ -820,12 +841,10 @@ Item{
                              color: "#2588BF"
                              //border.color: "blue"
                             // border.width: 8
-
                              gradient: Gradient {
                                     GradientStop { position: 0.0; color: "#2588BF" }
                                     GradientStop { position: 1.0; color: "#223853" }
                                     orientation: Gradient.Horizontal
-
                                 }
 
                              Rectangle {
@@ -879,10 +898,10 @@ Item{
 
                  }
 
-                 Column{
+                Column{
                      id:col_waterTempinCottPage
                      width:250
-                     anchors.left: col_washTimeinCottPage.right
+                     anchors.left: col_washTimeinCottPage.left
                      spacing: 20
                      Text {
                          text: "Water Temp"
@@ -893,8 +912,8 @@ Item{
 
                      }
                      Item {
-                         width: 250
-                         height: 250
+                         width: 200
+                         height: 200
 
                          anchors.centerIn: parent
                          // Circular Progress Indicator
@@ -967,10 +986,10 @@ Item{
 
                  }
 
-                 Column{
+                Column{
                      id:col_waterLevelinCottPage
                      width:250
-                     anchors.left: col_waterTempinCottPage.right
+                     anchors.left: col_waterTempinCottPage.left
                      spacing: 20
                      Text {
                          text: "Water Level"
@@ -981,8 +1000,8 @@ Item{
 
                      }
                      Item {
-                         width: 250
-                         height: 250
+                         width: 200
+                         height: 200
 
                          anchors.centerIn: parent
                          // Circular Progress Indicator
@@ -1055,10 +1074,11 @@ Item{
 
                  }
 
-                 Column{
+
+                Column{
                      id:col_waterTempretureinCottPage
                      width:250
-                     anchors.left: col_waterLevelinCottPage.right
+                     anchors.left: col_waterLevelinCottPage.left
                      spacing: 20
                      Text {
                          text: "Water Tempreture"
@@ -1069,8 +1089,8 @@ Item{
 
                      }
                      Item {
-                         width: 250
-                         height: 250
+                         width: 200
+                         height: 200
 
                          anchors.centerIn: parent
                          // Circular Progress Indicator
@@ -1138,10 +1158,9 @@ Item{
                          }
                      }
                  }
+
             }
-
-        }
-
+}
     }
 
     /*
@@ -1149,7 +1168,7 @@ Item{
 
         id:startPage
         width:800
-        height:472
+        height:500
         visible: true
 
         gradient: Gradient {
@@ -1212,7 +1231,7 @@ Item{
     Rectangle {
     id:homePage
     width:800
-    height:472
+    height:500
 
     gradient: Gradient {
            GradientStop { position: 0.0; color: "#1B5178" }
@@ -1898,7 +1917,7 @@ Rectangle {
         anchors.fill: parent
         color: "lightgreen"
         //width: 800
-       // height: 472
+       // height: 500
         visible: false
 
         Button {
