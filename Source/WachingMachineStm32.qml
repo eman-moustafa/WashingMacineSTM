@@ -10,6 +10,7 @@ Rectangle{
     property bool buttonRinseClicked: false
     property bool buttonSoakClicked: false
     property bool buttonDelayStartClicked: false
+
     width: 800
     height: 500
 
@@ -25,8 +26,6 @@ Rectangle{
         orientation: Gradient.Horizontal
     }
 
-
-
     Flickable {
         id: flickableContentPage1
         width: 800 // Screen width
@@ -38,54 +37,38 @@ Rectangle{
 
         visible: true
 
-        Rectangle{
-            width:1700
-            height:500
-            anchors.fill: parent
-            gradient: Gradient {
-                GradientStop {
-                    position: 0.0
-                    color: "#1b517a"
-                } // Left color
-                GradientStop {
-                    position: 1.0
-                    color: "#0e0f10"
-                } // Right color
-                orientation: Gradient.Horizontal
-            }
-
-            Column
-            {
-                width: 800 // Match Flickable's width
-                height: 500
-                spacing: 20 // Space between rows
-                anchors.centerIn: parent
-
                     Row {
                         id: row1
                         width: parent.width
                         height:parent.height/2
                         spacing: 20
+                        anchors.topMargin: 100
+                        anchors.leftMargin: 50
+                        anchors.rightMargin: 50
+                        anchors.top: parent.top
+
+
                         Button {
-                                       width: parent.width/4
-                                       height: parent.height/2
+                                       width: parent.width/4 //200
+                                       height: parent.height/2 //250
                                        contentItem: Row {
                                         anchors.fill: parent
 
                                            Image {
                                                       source: "images/dark.png"   // Path to your image
-                                                      width: parent.width/2                  // Image width
-                                                      height: parent.height                 // Image height
+                                                      width: parent.width/2 //100                 // Image width
+                                                      height: parent.height   //250              // Image height
                                                       anchors.left: parent.left
                                                       anchors.leftMargin: 10
                                                       anchors.verticalCenter: parent.verticalCenter
                                                   }
+
                                            Text {
                                                      text: "DARKs\n غامق \n 90 \n min"
                                                      color: "white"              // Initial text color
                                                      font.pixelSize: 17
                                                      anchors.right: parent.right
-                                                    //font.family: "MontBlack.ttf"
+
                                            }
                                }
 
@@ -99,11 +82,15 @@ Rectangle{
                                                          orientation: Gradient.Horizontal
                                                      }
                                           }
+                                       onClicked: {
 
+                                                  flickableContentPage1.visible = false;
+                                                  flickableContentDarkPage.visible = true;
+                                                 }
 
 
                                }
-                                   Button {
+                        Button {
                                        width: parent.width/4
                                        height: parent.height/2
 
@@ -138,12 +125,14 @@ Rectangle{
                                                          orientation: Gradient.Horizontal
                                                      }
                                           }
+                                       onClicked: {
 
-
-
+                                                  flickableContentPage1.visible = false;
+                                                  flickableContentLightPage.visible = true;
+                                                 }
 
                                }
-                                   Button {
+                        Button {
                                        width: parent.width/4
                                        height: parent.height/2
 
@@ -178,12 +167,14 @@ Rectangle{
                                                          orientation: Gradient.Horizontal
                                                      }
                                           }
+                                       onClicked: {
 
-
-
+                                                  flickableContentPage1.visible = false;
+                                                  flickableContentWhitePage.visible = true;
+                                                 }
 
                                }
-                                   Button {
+                        Button {
                                        width: parent.width/4
                                        height: parent.height/2
 
@@ -217,13 +208,16 @@ Rectangle{
                                                          GradientStop { position: 1.0; color: "black" }    // Right color
                                                          orientation: Gradient.Horizontal
                                                      }
-                                          }
+                                          }                            
 
+                                       onClicked: {
 
-
+                                                  flickableContentPage1.visible = false;
+                                                  flickableContentWoolPage.visible = true;
+                                                 }
                                }
 
-                                   Button {
+                        Button {
                                        width: parent.width/4
                                        height: parent.height/2
                                        contentItem: Row {
@@ -257,11 +251,15 @@ Rectangle{
                                                          orientation: Gradient.Horizontal
                                                      }
                                           }
+                                       onClicked: {
 
+                                                  flickableContentPage1.visible = false;
+                                                  flickableContentDarkPage.visible = true;
+                                                 }
 
 
                                }
-                                   Button {
+                        Button {
                                        width: parent.width/4
                                        height: parent.height/2
 
@@ -297,11 +295,13 @@ Rectangle{
                                                      }
                                           }
 
+                                       onClicked: {
 
-
-
+                                                  flickableContentPage1.visible = false;
+                                                  flickableContentLightPage.visible = true;
+                                                 }
                                }
-                                   Button {
+                        Button {
                                        width: parent.width/4
                                        height: parent.height/2
 
@@ -336,12 +336,14 @@ Rectangle{
                                                          orientation: Gradient.Horizontal
                                                      }
                                           }
+                                       onClicked: {
 
-
-
+                                                  flickableContentPage1.visible = false;
+                                                  flickableContentWhitePage.visible = true;
+                                                 }
 
                                }
-                                   Button {
+                        Button {
                                        width: parent.width/4
                                        height: parent.height/2
 
@@ -377,23 +379,23 @@ Rectangle{
                                                      }
                                           }
 
+                                       onClicked: {
 
-
+                                                  flickableContentPage1.visible = false;
+                                                  flickableContentWoolPage.visible = true;
+                                                 }
                                }
 
                     }
-
-
-                           // Second Row
-                           Row {
+                    // Second Row
+                    Row {
                                id: row2
                                width: parent.width
                                height: parent.height/2
                                spacing: 20
-                               //anchors.topMargin: 100
-                               anchors.bottomMargin: 50
-                               anchors.leftMargin: 50
-                               anchors.rightMargin: 50
+                               anchors.bottom: parent.bottom
+                               anchors.topMargin: 100
+                              // anchors.bottomMargin: 50
 
 
                                Button {
@@ -432,9 +434,11 @@ Rectangle{
                                                  }
                                       }
 
+                                   onClicked: {
 
-
-
+                                              flickableContentPage1.visible = false;
+                                              flickableContentDelicatePage.visible = true;
+                                             }
                            }
                                Button {
                                    width: parent.width/4
@@ -471,10 +475,11 @@ Rectangle{
                                                      orientation: Gradient.Horizontal
                                                  }
                                       }
+                                   onClicked: {
 
-
-
-
+                                              flickableContentPage1.visible = false;
+                                              flickableContentJeansPage.visible = true;
+                                             }
 
                            }
                                Button {
@@ -554,9 +559,11 @@ Rectangle{
                                                      orientation: Gradient.Horizontal
                                                  }
                                       }
+                                   onClicked: {
 
-
-
+                                              flickableContentPage1.visible = false;
+                                              flickableContentSportsWearPage.visible = true;
+                                             }
                            }
 
                                Button {
@@ -594,10 +601,11 @@ Rectangle{
                                                      orientation: Gradient.Horizontal
                                                  }
                                       }
+                                   onClicked: {
 
-
-
-
+                                              flickableContentPage1.visible = false;
+                                              flickableContentDelicatePage.visible = true;
+                                             }
                            }
                                Button {
                                    width: parent.width/4
@@ -634,9 +642,11 @@ Rectangle{
                                                      orientation: Gradient.Horizontal
                                                  }
                                       }
+                                   onClicked: {
 
-
-
+                                              flickableContentPage1.visible = false;
+                                              flickableContentJeansPage.visible = true;
+                                             }
 
                            }
                                Button {
@@ -719,43 +729,30 @@ Rectangle{
                                                      orientation: Gradient.Horizontal
                                                  }
                                       }
+                                   onClicked: {
 
-
-
+                                              flickableContentPage1.visible = false;
+                                              flickableContentSportsWearPage.visible = true;
+                                             }
                            }
 
                            }
-            }
+
 
         }
-    }
+
 
     Flickable{
         id: flickableContentCottonPage
         width: 800 // Screen width
         height:500  // Screen height
-        contentWidth : 1700 // Width of the scrollable content
+        contentWidth : 1400 // Width of the scrollable content
         contentHeight: height // Match the screen height for horizontal scrolling
         //anchors.topMargin: 100
         clip: true // Ensure the content is clipped to the Flickable's area
 
         visible: false
-        Rectangle{
 
-            width:1700
-            height:500
-            anchors.fill: parent
-            gradient: Gradient {
-                GradientStop {
-                    position: 0.0
-                    color: "#1b517a"
-                } // Left color
-                GradientStop {
-                    position: 1.0
-                    color: "#0e0f10"
-                } // Right color
-                orientation: Gradient.Horizontal
-            }
 
             Button {
                 id:btn_cottoninCottPage
@@ -763,7 +760,7 @@ Rectangle{
                 height:( parent.height)/3
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 50
+                anchors.bottomMargin: 100
                 anchors.leftMargin: 50
 
                 contentItem: Row {
@@ -805,29 +802,34 @@ Rectangle{
                                                                  }
         }
 
-            Row
+     /*       Row
             {
                 width: parent.width*2/3
                 height:parent.height/3
                 anchors.bottomMargin: 50
                 spacing: 20
                 //anchors.right: parent.right
-                anchors.right:btn_cottoninCottPage.right
-                anchors.centerIn: parent
+                anchors.left:btn_cottoninCottPage.right
+                anchors.bottom: btn_cottoninCottPage.bottom
+*/
+                //anchors.centerIn: parent
 
                 Column{
                      id:col_washTimeinCottPage
                      width:250
-                     anchors.left: parent.left
+                     anchors.left:btn_cottoninCottPage.right
+                     anchors.bottom: btn_cottoninCottPage.bottom
                      spacing: 20
                      Text {
                          text: "Wash time"
-                         font.pixelSize: 14
+                         font.pixelSize: 20
                          color: "white"
+                         anchors.centerIn: parent
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
                          verticalAlignment: Text.AlignVCenter   // Vertically center the text
                      }
                      Item {
+                         id:item_washTimeinCottPage
                          width: 200
                          height: 200
                          anchors.centerIn: parent
@@ -846,7 +848,6 @@ Rectangle{
                                     GradientStop { position: 1.0; color: "#223853" }
                                     orientation: Gradient.Horizontal
                                 }
-
                              Rectangle {
                                  anchors.centerIn: parent
                                  width: 150
@@ -859,27 +860,29 @@ Rectangle{
                                      id:numberDisplayinCottPage
                                      anchors.centerIn: parent
                                      text: "90\nmin"
-                                     font.pixelSize: 18
+                                     font.pixelSize: 25
                                      horizontalAlignment: Text.AlignHCenter
                                      verticalAlignment: Text.AlignVCenter
                                      color: "white"
                              }
                          }
                          }
-
-
                          // Interaction Logic
                          MouseArea {
                              id: dialAreainCottPage
                              anchors.fill: parent
 
-                             property real dialValue: 90 // Initial value
+                         property real dialValue: 90 // Initial value
+
 
                              onPressed: {
                                  console.log("Dial pressed!")
                              }
 
                              onPositionChanged: {
+
+
+
                                  // Simple increment/decrement based on mouse movement
                                  if (mouse.x > dialinCottPage.width / 2) {
                                      dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
@@ -887,11 +890,16 @@ Rectangle{
                                      dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
                                  }
                                  numberDisplayinCottPage.text = dialValue + "\nmin"; // Update display
-                             }
+
+
+
+                                 }
+
 
                              onReleased: {
                                  console.log("Dial released!");
                              }
+
                          }
 
                      }
@@ -901,14 +909,15 @@ Rectangle{
                 Column{
                      id:col_waterTempinCottPage
                      width:250
-                     anchors.left: col_washTimeinCottPage.left
+                     anchors.left:col_washTimeinCottPage.right
+                     anchors.bottom: col_washTimeinCottPage.bottom
                      spacing: 20
                      Text {
                          text: "Water Temp"
-                         font.pixelSize: 14
+                         font.pixelSize: 20
                          color: "white"
-                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
-                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         horizontalAlignment:Text.AlignHCenter
+                         anchors.centerIn: parent
 
                      }
                      Item {
@@ -947,7 +956,7 @@ Rectangle{
                                      id:numberDisplayWaterTempinCottPage
                                      anchors.centerIn: parent
                                      text: "90\nC"
-                                     font.pixelSize: 18
+                                     font.pixelSize: 25
                                      horizontalAlignment: Text.AlignHCenter
                                      verticalAlignment: Text.AlignVCenter
                                      color: "white"
@@ -989,14 +998,16 @@ Rectangle{
                 Column{
                      id:col_waterLevelinCottPage
                      width:250
-                     anchors.left: col_waterTempinCottPage.left
+                     anchors.left:col_waterTempinCottPage.right
+                     anchors.bottom: col_waterTempinCottPage.bottom
                      spacing: 20
                      Text {
                          text: "Water Level"
-                         font.pixelSize: 14
+                         font.pixelSize: 20
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
                          verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
 
                      }
                      Item {
@@ -1035,7 +1046,7 @@ Rectangle{
                                      id:numberDisplayWaterLevelinCottPage
                                      anchors.centerIn: parent
                                      text: "3"
-                                     font.pixelSize: 18
+                                     font.pixelSize: 25
                                      horizontalAlignment: Text.AlignHCenter
                                      verticalAlignment: Text.AlignVCenter
                                      color: "white"
@@ -1074,24 +1085,25 @@ Rectangle{
 
                  }
 
-
                 Column{
+
                      id:col_waterTempretureinCottPage
                      width:250
-                     anchors.left: col_waterLevelinCottPage.left
+                     anchors.left:col_waterLevelinCottPage.right
+                     anchors.bottom: col_waterLevelinCottPage.bottom
                      spacing: 20
                      Text {
                          text: "Water Tempreture"
-                         font.pixelSize: 14
+                         font.pixelSize: 20
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
                          verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
 
                      }
                      Item {
                          width: 200
                          height: 200
-
                          anchors.centerIn: parent
                          // Circular Progress Indicator
 
@@ -1124,7 +1136,7 @@ Rectangle{
                                      id:numberDisplayWaterTempretureinCottPage
                                      anchors.centerIn: parent
                                      text: "2"
-                                     font.pixelSize: 18
+                                     font.pixelSize: 25
                                      horizontalAlignment: Text.AlignHCenter
                                      verticalAlignment: Text.AlignVCenter
                                      color: "white"
@@ -1159,9 +1171,2969 @@ Rectangle{
                      }
                  }
 
-            }
-}
+                Button{
+                    id:btn_nextPageinCottPage
+                    anchors.bottom: parent.bottom
+                    anchors.right: col_waterTempretureinCottPage.right
+                    anchors.bottomMargin: 50
+                    anchors.leftMargin: 50
+
+                    contentItem: Text {
+                           text: "NEXT"
+                           color: "white"      // Initial text color
+                           font.pixelSize: 16
+                           horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                           verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+                       }
+                    background: Rectangle {
+                         gradient: Gradient {
+                        GradientStop {
+                            position: 0.0
+                            color: "#1b517a"
+                        } // Left color
+                        GradientStop {
+                            position: 1.0
+                            color: "#0e0f10"
+                        } // Right color
+                        orientation: Gradient.Horizontal
+                         }
+                        radius: 8
+                        anchors.fill: parent
+                       }
+
+                    onClicked: {
+                        flickableContentCottonPage.visible = false;
+                        cottonPage.visible = true;
+                    }
+                }
+
     }
+
+    Flickable{
+        id: flickableContentWoolPage
+        width: 800 // Screen width
+        height:500  // Screen height
+        contentWidth : 1300 // Width of the scrollable content
+        contentHeight: height // Match the screen height for horizontal scrolling
+        //anchors.topMargin: 100
+        clip: true // Ensure the content is clipped to the Flickable's area
+
+        visible: false
+
+
+            Button {
+                id:btn_WoolinWoolPage
+                width: parent.width/3
+                height:( parent.height)/3
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 100
+                anchors.leftMargin: 50
+
+                contentItem: Row {
+              anchors.fill: parent
+
+                    Image {
+                               source: "images/wool.png"   // Path to your image
+                               width: parent.width/2                  // Image width
+                               height: parent.height                 // Image height
+
+                               anchors.left: parent.left
+                               anchors.leftMargin: 10
+                               anchors.verticalCenter: parent.verticalCenter
+                           }
+                    Text {
+                              text: "WOOL \n 90 \n min"
+                              color: "white"              // Initial text color
+                              font.pixelSize: 17
+                              anchors.right: parent.right
+                              anchors.verticalCenter: parent.verticalCenter
+                    }
+        }
+
+                background: Rectangle {
+                       radius: 8
+                       anchors.fill: parent
+                       gradient: Gradient {
+                                  GradientStop { position: 0.0; color: "white" }     // Left color
+                                  GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                                  GradientStop { position: 1.0; color: "black" }    // Right color
+                                  orientation: Gradient.Horizontal
+                              }
+                   }
+
+               onClicked: {
+                                                                  flickableContentPage1.visible = true;
+                                                                  flickableContentWoolPage.visible = false;
+                                                                 }
+        }
+
+     /*       Row
+            {
+                width: parent.width*2/3
+                height:parent.height/3
+                anchors.bottomMargin: 50
+                spacing: 20
+                //anchors.right: parent.right
+                anchors.left:btn_cottoninCottPage.right
+                anchors.bottom: btn_cottoninCottPage.bottom
+*/
+                //anchors.centerIn: parent
+
+                Column{
+                     id:col_washTimeinWoolPage
+                     width:250
+                     anchors.left:btn_WoolinWoolPage.right
+                     anchors.bottom: btn_WoolinWoolPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Wash time"
+                         font.pixelSize: 20
+                         color: "white"
+                         anchors.centerIn: parent
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+                         Rectangle {
+                             id:dialinWoolPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2588BF"
+                             //border.color: "blue"
+                            // border.width: 8
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2588BF" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+                                }
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayinWoolPage
+                                     anchors.centerIn: parent
+                                     text: "90\nmin"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreainWoolPage
+                             anchors.fill: parent
+
+                         property real dialValue: 90 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial pressed!")
+                             }
+
+                             onPositionChanged: {
+
+
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialinWoolPage.width / 2) {
+                                     dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayinWoolPage.text = dialValue + "\nmin"; // Update display
+
+
+
+                                 }
+
+
+                             onReleased: {
+                                 console.log("Dial released!");
+                             }
+
+                         }
+
+                     }
+
+
+}
+                Column{
+                     id:col_waterTempinWoolPage
+                     width:250
+                     anchors.left:col_washTimeinWoolPage.right
+                     anchors.bottom: col_washTimeinWoolPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Temp"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment:Text.AlignHCenter
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempinWoolPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#B81219"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#B81219" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempinWoolPage
+                                     anchors.centerIn: parent
+                                     text: "90\nC"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempinWoolPage
+                             anchors.fill: parent
+
+                             property real dialValue: 90 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Temp pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempinWoolPage.width / 2) {
+                                     dialValue = Math.min(90, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempinWoolPage.text = dialValue+"\nC" ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Temp released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterLevelinWoolPage
+                     width:250
+                     anchors.left:col_waterTempinWoolPage.right
+                     anchors.bottom: col_waterTempinWoolPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Level"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterLevelinWoolPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#fff"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#fff" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterLevelinWoolPage
+                                     anchors.centerIn: parent
+                                     text: "3"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterLevelinWoolPage
+                             anchors.fill: parent
+
+                             property real dialValue: 3 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Level pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterLevelinWoolPage.width / 2) {
+                                     dialValue = Math.min(5, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterLevelinWoolPage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Level released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempretureinWoolPage
+                     width:250
+                     anchors.left:col_waterLevelinWoolPage.right
+                     anchors.bottom: col_waterLevelinWoolPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Tempreture"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempretureinWoolPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2F2780"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2F2780" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempretureinWoolPage
+                                     anchors.centerIn: parent
+                                     text: "2"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempretureinWoolPage
+                             anchors.fill: parent
+
+                             property real dialValue: 2 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Tempreture pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempretureinWoolPage.width / 2) {
+                                     dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempretureinWoolPage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Tempreture released!");
+                             }
+                         }
+                     }
+                 }
+}
+
+    Flickable{
+        id: flickableContentDarkPage
+        width: 800 // Screen width
+        height:500  // Screen height
+        contentWidth : 1300 // Width of the scrollable content
+        contentHeight: height // Match the screen height for horizontal scrolling
+        //anchors.topMargin: 100
+        clip: true // Ensure the content is clipped to the Flickable's area
+
+        visible: false
+
+
+            Button {
+                id:btn_DarkinDarkPage
+                width: parent.width/3
+                height:( parent.height)/3
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 100
+                anchors.leftMargin: 50
+
+                contentItem: Row {
+              anchors.fill: parent
+
+                    Image {
+                               source: "images/dark.png"   // Path to your image
+                               width: parent.width/2                  // Image width
+                               height: parent.height                 // Image height
+
+                               anchors.left: parent.left
+                               anchors.leftMargin: 10
+                               anchors.verticalCenter: parent.verticalCenter
+                           }
+                    Text {
+                              text: "Darks \n 90 \n min"
+                              color: "white"              // Initial text color
+                              font.pixelSize: 17
+                              anchors.right: parent.right
+                              anchors.verticalCenter: parent.verticalCenter
+                    }
+        }
+
+                background: Rectangle {
+                       radius: 8
+                       anchors.fill: parent
+                       gradient: Gradient {
+                                  GradientStop { position: 0.0; color: "white" }     // Left color
+                                  GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                                  GradientStop { position: 1.0; color: "black" }    // Right color
+                                  orientation: Gradient.Horizontal
+                              }
+                   }
+
+               onClicked: {
+                                                                  flickableContentPage1.visible = true;
+                                                                  flickableContentDarkPage.visible = false;
+                                                                 }
+        }
+
+
+                Column{
+                     id:col_washTimeinDarkPage
+                     width:250
+                     anchors.left:btn_DarkinDarkPage.right
+                     anchors.bottom: btn_DarkinDarkPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Wash time"
+                         font.pixelSize: 20
+                         color: "white"
+                         anchors.centerIn: parent
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+                         Rectangle {
+                             id:dialinDarkPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2588BF"
+                             //border.color: "blue"
+                            // border.width: 8
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2588BF" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+                                }
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayinDarkPage
+                                     anchors.centerIn: parent
+                                     text: "90\nmin"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreainDarkPage
+                             anchors.fill: parent
+
+                         property real dialValue: 90 // Initial value
+                property real col_washTimeinCottPageX : col_washTimeinWoolPage.width / 2 + col_washTimeinCottPage.x; // Center of the button
+                property real col_washTimeinCottPageY : col_washTimeinWoolPage.height / 2 + col_washTimeinCottPage.y; // Center of the button
+
+
+
+                             onPressed: {
+                                 console.log("Dial pressed!")
+                             }
+
+                             onPositionChanged: {
+
+
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialinDarkPage.width / 2) {
+                                     dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayinDarkPage.text = dialValue + "\nmin"; // Update display
+
+
+
+                                 }
+
+
+                             onReleased: {
+                                 console.log("Dial released!");
+                             }
+
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempinDarkPage
+                     width:250
+                     anchors.left:col_washTimeinDarkPage.right
+                     anchors.bottom: col_washTimeinDarkPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Temp"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment:Text.AlignHCenter
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempinDarkPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#B81219"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#B81219" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempinDarkPage
+                                     anchors.centerIn: parent
+                                     text: "90\nC"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempinDarkPage
+                             anchors.fill: parent
+
+                             property real dialValue: 90 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Temp pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempinDarkPage.width / 2) {
+                                     dialValue = Math.min(90, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempinDarkPage.text = dialValue+"\nC" ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Temp released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterLevelinDarkPage
+                     width:250
+                     anchors.left:col_waterTempinDarkPage.right
+                     anchors.bottom: col_waterTempinDarkPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Level"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterLevelinDarkPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#fff"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#fff" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterLevelinDarkPage
+                                     anchors.centerIn: parent
+                                     text: "3"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterLevelinDarkPage
+                             anchors.fill: parent
+
+                             property real dialValue: 3 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Level pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterLevelinDarkPage.width / 2) {
+                                     dialValue = Math.min(5, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterLevelinDarkPage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Level released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempretureinDarkPage
+                     width:250
+                     anchors.left:col_waterLevelinDarkPage.right
+                     anchors.bottom: col_waterLevelinDarkPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Tempreture"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempretureinDarkPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2F2780"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2F2780" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempretureinDarkPage
+                                     anchors.centerIn: parent
+                                     text: "2"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempretureinDarkPage
+                             anchors.fill: parent
+
+                             property real dialValue: 2 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Tempreture pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempretureinDarkPage.width / 2) {
+                                     dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempretureinDarkPage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Tempreture released!");
+                             }
+                         }
+                     }
+                 }
+}
+
+    Flickable{
+        id: flickableContentLightPage
+        width: 800 // Screen width
+        height:500  // Screen height
+        contentWidth : 1300 // Width of the scrollable content
+        contentHeight: height // Match the screen height for horizontal scrolling
+        //anchors.topMargin: 100
+        clip: true // Ensure the content is clipped to the Flickable's area
+
+        visible: false
+
+
+            Button {
+                id:btn_LightinLightPage
+                width: parent.width/3
+                height:( parent.height)/3
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 100
+                anchors.leftMargin: 50
+
+                contentItem: Row {
+              anchors.fill: parent
+
+                    Image {
+                               source: "images/light.png"   // Path to your image
+                               width: parent.width/2                  // Image width
+                               height: parent.height                 // Image height
+
+                               anchors.left: parent.left
+                               anchors.leftMargin: 10
+                               anchors.verticalCenter: parent.verticalCenter
+                           }
+                    Text {
+                              text: "Light \n 60 \n min"
+                              color: "white"              // Initial text color
+                              font.pixelSize: 17
+                              anchors.right: parent.right
+                              anchors.verticalCenter: parent.verticalCenter
+                    }
+        }
+
+                background: Rectangle {
+                       radius: 8
+                       anchors.fill: parent
+                       gradient: Gradient {
+                                  GradientStop { position: 0.0; color: "white" }     // Left color
+                                  GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                                  GradientStop { position: 1.0; color: "black" }    // Right color
+                                  orientation: Gradient.Horizontal
+                              }
+                   }
+
+               onClicked: {
+                                                                  flickableContentPage1.visible = true;
+                                                                  flickableContentLightPage.visible = false;
+                                                                 }
+        }
+
+
+                Column{
+                     id:col_washTimeinLightPage
+                     width:250
+                     anchors.left:btn_LightinLightPage.right
+                     anchors.bottom: btn_LightinLightPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Wash time"
+                         font.pixelSize: 20
+                         color: "white"
+                         anchors.centerIn: parent
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+                         Rectangle {
+                             id:dialinLightPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2588BF"
+                             //border.color: "blue"
+                            // border.width: 8
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2588BF" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+                                }
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayinLightPage
+                                     anchors.centerIn: parent
+                                     text: "90\nmin"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreainLightPage
+                             anchors.fill: parent
+
+                         property real dialValue: 90 // Initial value
+                property real col_washTimeinCottPageX : col_washTimeinLightPage.width / 2 + col_washTimeinCottPage.x; // Center of the button
+                property real col_washTimeinCottPageY : col_washTimeinLightPage.height / 2 + col_washTimeinCottPage.y; // Center of the button
+
+
+
+                             onPressed: {
+                                 console.log("Dial pressed!")
+                             }
+
+                             onPositionChanged: {
+
+
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialinLightPage.width / 2) {
+                                     dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayinLightPage.text = dialValue + "\nmin"; // Update display
+
+
+
+                                 }
+
+
+                             onReleased: {
+                                 console.log("Dial released!");
+                             }
+
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempinLightPage
+                     width:250
+                     anchors.left:col_washTimeinLightPage.right
+                     anchors.bottom: col_washTimeinLightPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Temp"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment:Text.AlignHCenter
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempinLightPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#B81219"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#B81219" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempinLightPage
+                                     anchors.centerIn: parent
+                                     text: "90\nC"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempinLightPage
+                             anchors.fill: parent
+
+                             property real dialValue: 90 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Temp pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempinLightPage.width / 2) {
+                                     dialValue = Math.min(90, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempinLightPage.text = dialValue+"\nC" ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Temp released!");
+                             }
+                         }
+
+                     }
+                 }
+
+                Column{
+                     id:col_waterLevelinLightPage
+                     width:250
+                     anchors.left:col_waterTempinLightPage.right
+                     anchors.bottom: col_waterTempinLightPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Level"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterLevelinLightPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#fff"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#fff" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterLevelinLightPage
+                                     anchors.centerIn: parent
+                                     text: "3"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterLevelinLightPage
+                             anchors.fill: parent
+
+                             property real dialValue: 3 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Level pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterLevelinLightPage.width / 2) {
+                                     dialValue = Math.min(5, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterLevelinLightPage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Level released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempretureinLightPage
+                     width:250
+                     anchors.left:col_waterLevelinLightPage.right
+                     anchors.bottom: col_waterLevelinLightPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Tempreture"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempretureinLightPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2F2780"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2F2780" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempretureinLightPage
+                                     anchors.centerIn: parent
+                                     text: "2"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempretureinLightPage
+                             anchors.fill: parent
+
+                             property real dialValue: 2 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Tempreture pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempretureinLightPage.width / 2) {
+                                     dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempretureinLightPage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Tempreture released!");
+                             }
+                         }
+                     }
+                 }
+}
+
+    Flickable{
+        id: flickableContentDelicatePage
+        width: 800 // Screen width
+        height:500  // Screen height
+        contentWidth : 1300 // Width of the scrollable content
+        contentHeight: height // Match the screen height for horizontal scrolling
+        //anchors.topMargin: 100
+        clip: true // Ensure the content is clipped to the Flickable's area
+
+        visible: false
+
+
+            Button {
+                id:btn_DelicateinDelicatePage
+                width: parent.width/3
+                height:( parent.height)/3
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 100
+                anchors.leftMargin: 50
+
+                contentItem: Row {
+              anchors.fill: parent
+
+                    Image {
+                               source: "images/delicate.png"   // Path to your image
+                               width: parent.width/2                  // Image width
+                               height: parent.height                 // Image height
+
+                               anchors.left: parent.left
+                               anchors.leftMargin: 10
+                               anchors.verticalCenter: parent.verticalCenter
+                           }
+                    Text {
+                              text: "Delicate \n 60 \n min"
+                              color: "white"              // Initial text color
+                              font.pixelSize: 17
+                              anchors.right: parent.right
+                              anchors.verticalCenter: parent.verticalCenter
+                    }
+        }
+
+                background: Rectangle {
+                       radius: 8
+                       anchors.fill: parent
+                       gradient: Gradient {
+                                  GradientStop { position: 0.0; color: "white" }     // Left color
+                                  GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                                  GradientStop { position: 1.0; color: "black" }    // Right color
+                                  orientation: Gradient.Horizontal
+                              }
+                   }
+
+               onClicked: {
+
+                                                                  flickableContentPage1.visible = true;
+                                                                  flickableContentDelicatePage.visible = false;
+                                                                 }
+        }
+
+
+                Column{
+                     id:col_washTimeinDelicatePage
+                     width:250
+                     anchors.left:btn_DelicateinDelicatePage.right
+                     anchors.bottom: btn_DelicateinDelicatePage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Wash time"
+                         font.pixelSize: 20
+                         color: "white"
+                         anchors.centerIn: parent
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+                         Rectangle {
+                             id:dialinDelicatePage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2588BF"
+                             //border.color: "blue"
+                            // border.width: 8
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2588BF" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+                                }
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayinDelicatePage
+                                     anchors.centerIn: parent
+                                     text: "90\nmin"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreainDelicatePage
+                             anchors.fill: parent
+                             property real dialValue: 90 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial pressed!")
+                             }
+
+                             onPositionChanged: {
+
+
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialinCottPage.width / 2) {
+                                     dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayinCottPage.text = dialValue + "\nmin"; // Update display
+
+                                 }
+
+
+
+                             onReleased: {
+                                 console.log("Dial released!");
+                             }
+
+                     }
+                     }
+}
+
+                Column{
+                     id:col_waterTempinDelicatePage
+                     width:250
+                     anchors.left:col_washTimeinDelicatePage.right
+                     anchors.bottom: col_washTimeinDelicatePage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Temp"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment:Text.AlignHCenter
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempinDelicatePage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#B81219"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#B81219" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempinDelicatePage
+                                     anchors.centerIn: parent
+                                     text: "90\nC"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempinDelicatePage
+                             anchors.fill: parent
+
+                             property real dialValue: 90 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Temp pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempinDelicatePage.width / 2) {
+                                     dialValue = Math.min(90, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempinDelicatePage.text = dialValue+"\nC" ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Temp released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterLevelinDelicatePage
+                     width:250
+                     anchors.left:col_waterTempinDelicatePage.right
+                     anchors.bottom: col_waterTempinDelicatePage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Level"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterLevelinDelicatePage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#fff"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#fff" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterLevelinDelicatePage
+                                     anchors.centerIn: parent
+                                     text: "3"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterLevelinDelicatePage
+                             anchors.fill: parent
+
+                             property real dialValue: 3 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Level pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterLevelinDelicatePage.width / 2) {
+                                     dialValue = Math.min(5, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterLevelinDelicatePage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Level released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempretureinDelicatePage
+                     width:250
+                     anchors.left:col_waterLevelinDelicatePage.right
+                     anchors.bottom: col_waterLevelinDelicatePage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Tempreture"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempretureinDelicatePage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2F2780"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2F2780" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempretureinDelicatePage
+                                     anchors.centerIn: parent
+                                     text: "2"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempretureinDelicatePage
+                             anchors.fill: parent
+
+                             property real dialValue: 2 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Tempreture pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempretureinDelicatePage.width / 2) {
+                                     dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempretureinDelicatePage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Tempreture released!");
+                             }
+
+                     }
+                 }
+}
+ }
+
+    Flickable{
+        id: flickableContentJeansPage
+        width: 800 // Screen width
+        height:500  // Screen height
+        contentWidth : 1300 // Width of the scrollable content
+        contentHeight: height // Match the screen height for horizontal scrolling
+        //anchors.topMargin: 100
+        clip: true // Ensure the content is clipped to the Flickable's area
+
+        visible: false
+
+
+            Button {
+                id:btn_JeansinJeansPage
+                width: parent.width/3
+                height:( parent.height)/3
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 100
+                anchors.leftMargin: 50
+
+                contentItem: Row {
+              anchors.fill: parent
+
+                    Image {
+                               source: "images/jeans.png"   // Path to your image
+                               width: parent.width/2                  // Image width
+                               height: parent.height                 // Image height
+
+                               anchors.left: parent.left
+                               anchors.leftMargin: 10
+                               anchors.verticalCenter: parent.verticalCenter
+                           }
+                    Text {
+                              text: "Jeans \n 120 \n min"
+                              color: "white"              // Initial text color
+                              font.pixelSize: 17
+                              anchors.right: parent.right
+                              anchors.verticalCenter: parent.verticalCenter
+                    }
+        }
+
+                background: Rectangle {
+                       radius: 8
+                       anchors.fill: parent
+                       gradient: Gradient {
+                                  GradientStop { position: 0.0; color: "white" }     // Left color
+                                  GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                                  GradientStop { position: 1.0; color: "black" }    // Right color
+                                  orientation: Gradient.Horizontal
+                              }
+                   }
+
+               onClicked: {
+                                                                  flickableContentPage1.visible = true;
+                                                                  flickableContentJeansPage.visible = false;
+                                                                 }
+        }
+
+                Column{
+                     id:col_washTimeinJeansPage
+                     width:250
+                     anchors.left:btn_JeansinJeansPage.right
+                     anchors.bottom: btn_JeansinJeansPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Wash time"
+                         font.pixelSize: 20
+                         color: "white"
+                         anchors.centerIn: parent
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+                         Rectangle {
+                             id:dialinJeansPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2588BF"
+                             //border.color: "blue"
+                            // border.width: 8
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2588BF" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+                                }
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayinJeansPage
+                                     anchors.centerIn: parent
+                                     text: "90\nmin"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreainJeansPage
+                             anchors.fill: parent
+
+                         property real dialValue: 90 // Initial value
+                property real col_washTimeinCottPageX : col_washTimeinJeansPage.width / 2 + col_washTimeinCottPage.x; // Center of the button
+                property real col_washTimeinCottPageY : col_washTimeinJeansPage.height / 2 + col_washTimeinCottPage.y; // Center of the button
+
+
+
+                             onPressed: {
+                                 console.log("Dial pressed!")
+                             }
+
+                             onPositionChanged: {
+
+
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialinJeansPage.width / 2) {
+                                     dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayinJeansPage.text = dialValue + "\nmin"; // Update display
+
+
+
+                                 }
+
+
+                             onReleased: {
+                                 console.log("Dial released!");
+                             }
+
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempinJeansPage
+                     width:250
+                     anchors.left:col_washTimeinJeansPage.right
+                     anchors.bottom: col_washTimeinJeansPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Temp"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment:Text.AlignHCenter
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempinJeansPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#B81219"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#B81219" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempinJeansPage
+                                     anchors.centerIn: parent
+                                     text: "90\nC"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempinJeansPage
+                             anchors.fill: parent
+
+                             property real dialValue: 90 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Temp pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempinJeansPage.width / 2) {
+                                     dialValue = Math.min(90, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempinJeansPage.text = dialValue+"\nC" ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Temp released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterLevelinJeansPage
+                     width:250
+                     anchors.left:col_waterTempinJeansPage.right
+                     anchors.bottom: col_waterTempinJeansPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Level"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterLevelinJeansPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#fff"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#fff" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterLevelinJeansPage
+                                     anchors.centerIn: parent
+                                     text: "3"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterLevelinJeansPage
+                             anchors.fill: parent
+
+                             property real dialValue: 3 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Level pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterLevelinJeansPage.width / 2) {
+                                     dialValue = Math.min(5, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterLevelinJeansPage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Level released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempretureinJeansPage
+                     width:250
+                     anchors.left:col_waterLevelinJeansPage.right
+                     anchors.bottom: col_waterLevelinJeansPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Tempreture"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempretureinJeansPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2F2780"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2F2780" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempretureinJeansPage
+                                     anchors.centerIn: parent
+                                     text: "2"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempretureinJeansPage
+                             anchors.fill: parent
+
+                             property real dialValue: 2 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Tempreture pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempretureinJeansPage.width / 2) {
+                                     dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempretureinJeansPage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Tempreture released!");
+                             }
+                         }
+                     }
+                 }
+}
+
+    Flickable{
+        id: flickableContentWhitePage
+        width: 800 // Screen width
+        height:500  // Screen height
+        contentWidth : 1300 // Width of the scrollable content
+        contentHeight: height // Match the screen height for horizontal scrolling
+        //anchors.topMargin: 100
+        clip: true // Ensure the content is clipped to the Flickable's area
+
+        visible: false
+
+
+            Button {
+                id:btn_WhiteinWhitePage
+                width: parent.width/3
+                height:( parent.height)/3
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 100
+                anchors.leftMargin: 50
+
+                contentItem: Row {
+              anchors.fill: parent
+
+                    Image {
+                               source: "images/white.png"   // Path to your image
+                               width: parent.width/2                  // Image width
+                               height: parent.height                 // Image height
+
+                               anchors.left: parent.left
+                               anchors.leftMargin: 10
+                               anchors.verticalCenter: parent.verticalCenter
+                           }
+                    Text {
+                              text: "White \n 120 \n min"
+                              color: "white"              // Initial text color
+                              font.pixelSize: 17
+                              anchors.right: parent.right
+                              anchors.verticalCenter: parent.verticalCenter
+                    }
+        }
+
+                background: Rectangle {
+                       radius: 8
+                       anchors.fill: parent
+                       gradient: Gradient {
+                                  GradientStop { position: 0.0; color: "white" }     // Left color
+                                  GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                                  GradientStop { position: 1.0; color: "black" }    // Right color
+                                  orientation: Gradient.Horizontal
+                              }
+                   }
+
+               onClicked: {
+                                                                  flickableContentPage1.visible = true;
+                                                                  flickableContentWhitePage.visible = false;
+                                                                 }
+        }
+
+
+                Column{
+                     id:col_washTimeinWhitePage
+                     width:250
+                     anchors.left:btn_WhiteinWhitePage.right
+                     anchors.bottom: btn_WhiteinWhitePage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Wash time"
+                         font.pixelSize: 20
+                         color: "white"
+                         anchors.centerIn: parent
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+                         Rectangle {
+                             id:dialinWhitePage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2588BF"
+                             //border.color: "blue"
+                            // border.width: 8
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2588BF" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+                                }
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayinWhitePage
+                                     anchors.centerIn: parent
+                                     text: "90\nmin"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreainWhitePage
+                             anchors.fill: parent
+
+                         property real dialValue: 90 // Initial value
+                property real col_washTimeinCottPageX : col_washTimeinJeansPage.width / 2 + col_washTimeinCottPage.x; // Center of the button
+                property real col_washTimeinCottPageY : col_washTimeinWoolPage.height / 2 + col_washTimeinCottPage.y; // Center of the button
+
+
+
+                             onPressed: {
+                                 console.log("Dial pressed!")
+                             }
+
+                             onPositionChanged: {
+
+
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialinWhitePage.width / 2) {
+                                     dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayinWhitePage.text = dialValue + "\nmin"; // Update display
+
+
+
+                                 }
+
+
+                             onReleased: {
+                                 console.log("Dial released!");
+                             }
+
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempinWhitePage
+                     width:250
+                     anchors.left:col_washTimeinWhitePage.right
+                     anchors.bottom: col_washTimeinWhitePage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Temp"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment:Text.AlignHCenter
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempinWhitePage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#B81219"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#B81219" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempinWhitePage
+                                     anchors.centerIn: parent
+                                     text: "90\nC"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempinWhitePage
+                             anchors.fill: parent
+
+                             property real dialValue: 90 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Temp pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempinWhitePage.width / 2) {
+                                     dialValue = Math.min(90, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempinWhitePage.text = dialValue+"\nC" ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Temp released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterLevelinWhitePage
+                     width:250
+                     anchors.left:col_waterTempinWhitePage.right
+                     anchors.bottom: col_waterTempinWhitePage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Level"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterLevelinWhitePage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#fff"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#fff" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterLevelinWhitePage
+                                     anchors.centerIn: parent
+                                     text: "3"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterLevelinWhitePage
+                             anchors.fill: parent
+
+                             property real dialValue: 3 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Level pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterLevelinWhitePage.width / 2) {
+                                     dialValue = Math.min(5, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterLevelinWhitePage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Level released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempretureinWhitePage
+                     width:250
+                     anchors.left:col_waterLevelinWhitePage.right
+                     anchors.bottom: col_waterLevelinWhitePage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Tempreture"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempretureinWhitePage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2F2780"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2F2780" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempretureinWhitePage
+                                     anchors.centerIn: parent
+                                     text: "2"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempretureinWhitePage
+                             anchors.fill: parent
+
+                             property real dialValue: 2 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Tempreture pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempretureinWhitePage.width / 2) {
+                                     dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempretureinWhitePage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Tempreture released!");
+                             }
+                         }
+                     }
+                 }
+}
+
+    Flickable{
+        id: flickableContentSportsWearPage
+        width: 800 // Screen width
+        height:500  // Screen height
+        contentWidth : 1300 // Width of the scrollable content
+        contentHeight: height // Match the screen height for horizontal scrolling
+        //anchors.topMargin: 100
+        clip: true // Ensure the content is clipped to the Flickable's area
+
+        visible: false
+
+
+            Button {
+                id:btn_SportsWearinSportsWearPage
+                width: parent.width/3
+                height:( parent.height)/3
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 100
+                anchors.leftMargin: 50
+
+                contentItem: Row {
+              anchors.fill: parent
+
+                    Image {
+                               source: "images/sportswear.png"   // Path to your image
+                               width: parent.width/2                  // Image width
+                               height: parent.height                 // Image height
+
+                               anchors.left: parent.left
+                               anchors.leftMargin: 10
+                               anchors.verticalCenter: parent.verticalCenter
+                           }
+                    Text {
+                              text: "SportsWear \n 60 \n min"
+                              color: "white"              // Initial text color
+                              font.pixelSize: 17
+                              anchors.right: parent.right
+                              anchors.verticalCenter: parent.verticalCenter
+                    }
+        }
+
+                background: Rectangle {
+                       radius: 8
+                       anchors.fill: parent
+                       gradient: Gradient {
+                                  GradientStop { position: 0.0; color: "white" }     // Left color
+                                  GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                                  GradientStop { position: 1.0; color: "black" }    // Right color
+                                  orientation: Gradient.Horizontal
+                              }
+                   }
+
+               onClicked: {
+                                                                  flickableContentPage1.visible = true;
+                                                                  flickableContentSportsWearPage.visible = false;
+                                                                 }
+        }
+
+
+                Column{
+                     id:col_washTimeinSportsWearPage
+                     width:250
+                     anchors.left:btn_SportsWearinSportsWearPage.right
+                     anchors.bottom: btn_SportsWearinSportsWearPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Wash time"
+                         font.pixelSize: 20
+                         color: "white"
+                         anchors.centerIn: parent
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+                         Rectangle {
+                             id:dialinSportsWearPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2588BF"
+                             //border.color: "blue"
+                            // border.width: 8
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2588BF" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+                                }
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayinSportsWearPage
+                                     anchors.centerIn: parent
+                                     text: "90\nmin"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreainSportsWearPage
+                             anchors.fill: parent
+
+                         property real dialValue: 90 // Initial value
+                property real col_washTimeinCottPageX : col_washTimeinSportsWearPage.width / 2 + col_washTimeinCottPage.x; // Center of the button
+                property real col_washTimeinCottPageY : col_washTimeinSportsWearPage.height / 2 + col_washTimeinCottPage.y; // Center of the button
+
+
+
+                             onPressed: {
+                                 console.log("Dial pressed!")
+                             }
+
+                             onPositionChanged: {
+
+
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialinSportsWearPage.width / 2) {
+                                     dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayinSportsWearPage.text = dialValue + "\nmin"; // Update display
+
+
+
+                                 }
+
+
+                             onReleased: {
+                                 console.log("Dial released!");
+                             }
+
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempinSportsWearPage
+                     width:250
+                     anchors.left:col_washTimeinSportsWearPage.right
+                     anchors.bottom: col_washTimeinSportsWearPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Temp"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment:Text.AlignHCenter
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempinSportsWearPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#B81219"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#B81219" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempinSportsWearPage
+                                     anchors.centerIn: parent
+                                     text: "90\nC"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempinSportsWearPage
+                             anchors.fill: parent
+
+                             property real dialValue: 90 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Temp pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempinSportsWearPage.width / 2) {
+                                     dialValue = Math.min(90, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempinSportsWearPage.text = dialValue+"\nC" ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Temp released!");
+                             }
+                         }
+
+                     }
+                 }
+
+                Column{
+                     id:col_waterLevelinSportsWearPage
+                     width:250
+                     anchors.left:col_waterTempinSportsWearPage.right
+                     anchors.bottom: col_waterTempinSportsWearPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Level"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterLevelinSportsWearPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#fff"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#fff" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterLevelinSportsWearPage
+                                     anchors.centerIn: parent
+                                     text: "3"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+
+
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterLevelinSportsWearPage
+                             anchors.fill: parent
+
+                             property real dialValue: 3 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Level pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterLevelinSportsWearPage.width / 2) {
+                                     dialValue = Math.min(5, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterLevelinSportsWearPage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Level released!");
+                             }
+                         }
+
+                     }
+
+                 }
+
+                Column{
+                     id:col_waterTempretureinSportsWearPage
+                     width:250
+                     anchors.left:col_waterLevelinSportsWearPage.right
+                     anchors.bottom: col_waterLevelinSportsWearPage.bottom
+                     spacing: 20
+                     Text {
+                         text: "Water Tempreture"
+                         font.pixelSize: 20
+                         color: "white"
+                         horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                         verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                         anchors.centerIn: parent
+
+                     }
+                     Item {
+                         width: 200
+                         height: 200
+                         anchors.centerIn: parent
+                         // Circular Progress Indicator
+
+                         Rectangle {
+                             id:dialWaterTempretureinSportsWearPage
+                             anchors.centerIn: parent
+                             width: 200
+                             height: 200
+                             radius: width / 2
+                             color: "#2F2780"
+                             //border.color: "blue"
+                            // border.width: 8
+
+                             gradient: Gradient {
+                                    GradientStop { position: 0.0; color: "#2F2780" }
+                                    GradientStop { position: 1.0; color: "#223853" }
+                                    orientation: Gradient.Horizontal
+
+                                }
+
+                             Rectangle {
+                                 anchors.centerIn: parent
+                                 width: 150
+                                 height: 150
+                                 radius: width / 2
+                                 //border.color: "blue"
+                                // border.width: 8
+                                 color: "#194767"
+                                 Text {
+                                     id:numberDisplayWaterTempretureinSportsWearPage
+                                     anchors.centerIn: parent
+                                     text: "2"
+                                     font.pixelSize: 25
+                                     horizontalAlignment: Text.AlignHCenter
+                                     verticalAlignment: Text.AlignVCenter
+                                     color: "white"
+                             }
+                         }
+                         }
+                         // Interaction Logic
+                         MouseArea {
+                             id: dialAreaWaterTempretureinSportsWearPage
+                             anchors.fill: parent
+
+                             property real dialValue: 2 // Initial value
+
+                             onPressed: {
+                                 console.log("Dial Water Tempreture pressed!")
+                             }
+
+                             onPositionChanged: {
+                                 // Simple increment/decrement based on mouse movement
+                                 if (mouse.x > dialWaterTempretureinSportsWearPage.width / 2) {
+                                     dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
+                                 } else {
+                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                 }
+                                 numberDisplayWaterTempretureinSportsWearPage.text = dialValue ; // Update display
+                             }
+
+                             onReleased: {
+                                 console.log("Dial Water Tempreture released!");
+                             }
+                         }
+                     }
+                 }
+}
+
 
     /*
     Rectangle {
@@ -1229,48 +4201,67 @@ Rectangle{
 */
 
     Rectangle {
-    id:homePage
+    id:cottonPage
     width:800
     height:500
-
     gradient: Gradient {
            GradientStop { position: 0.0; color: "#1B5178" }
            GradientStop { position: 1.0; color: "#000" }
            orientation: Gradient.Horizontal
 
        }
-
     visible: false
-   // visible: true
 
-    RowLayout
-    {
-        width:270
-        height:350
-        spacing: 20
-        anchors
-        {
-            right: parent.right
-            verticalCenter: parent.verticalCenter
 
+    Button{
+        contentItem: Text {
+               text: "←"
+               color: "white"      // Initial text color
+               font.pixelSize: 16
+               horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+               verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+           }
+        background: Rectangle {
+             gradient: Gradient {
+            GradientStop {
+                position: 0.0
+                color: "#1b517a"
+            } // Left color
+            GradientStop {
+                position: 1.0
+                color: "#0e0f10"
+            } // Right color
+            orientation: Gradient.Horizontal
+             }
+            radius: 8
+            anchors.fill: parent
+           }
+        onClicked: {
+            cottonPage.visible = false;
+            flickableContentCottonPage.visible = true;
         }
 
+    }
 
-        Layout.alignment: Qt.AlignRight
-
-        ColumnLayout
+        Column
         {
-            //width:135
+            id:colButtons1
+            width:120
           //  height:350
             Layout.alignment:Qt.AlignLeft
-            anchors.margins: 20
 
+            spacing: 20
+            anchors.right: parent.right
+            anchors.rightMargin: 20
+            anchors.leftMargin: 20
+            anchors.top: rec_time.top
 
             Button
                 {
                     id:btn_spin
-                    Layout.preferredWidth: 125
-                    Layout.preferredHeight: 100
+                    width:120
+                    height:100
                     contentItem: Text {
                            text: "SPIN"
                            color: "white"      // Initial text color
@@ -1297,13 +4288,11 @@ Rectangle{
                        }
                 }
 
-
-
             Button
             {
                 id:btn_ExtraSpin
-                Layout.preferredWidth: 125
-                Layout.preferredHeight: 100
+                width:120
+                height:100
                 contentItem: Text {
                     text:"EXTRA SPIN"
                        color: "white"      // Initial text color
@@ -1334,8 +4323,8 @@ Rectangle{
             Button
             {
                 id:btn_tubClean
-                Layout.preferredWidth: 125
-                Layout.preferredHeight: 100
+                width:120
+                height:100
                 contentItem: Text {
                     text:"TUB CLEAN"
                        color: "white"      // Initial text color
@@ -1362,21 +4351,23 @@ Rectangle{
             }
         }
 
-        ColumnLayout
+        Column
         {
-         //   width:130
-          //  height:350
+            id:colButtons2
+            width:120
+           //height:350
             Layout.alignment:Qt.AlignRight
-            anchors.margins: 20
-            spacing:20
-
-
+            spacing: 20
+            anchors.right: colButtons1.left
+            anchors.top: rec_time.top
+            anchors.rightMargin: 20
+            anchors.leftMargin: 20
 
             Button
             {
                 id:btn_rinse
-                Layout.preferredWidth: 125
-                Layout.preferredHeight: 100
+                width:120
+                height:100
                 contentItem: Text {
                     text:"RINSE"
                        color: "white"      // Initial text color
@@ -1406,8 +4397,8 @@ Rectangle{
             Button
             {
                 id:btn_Soak
-                Layout.preferredWidth: 125
-                Layout.preferredHeight: 100
+                width:120
+                height:100
                 contentItem: Text {
                     text:"SOAK"
                        color: "white"      // Initial text color
@@ -1436,8 +4427,8 @@ Rectangle{
             Button
             {
                 id:btn_DelayStart
-                Layout.preferredWidth: 125
-                Layout.preferredHeight: 100
+                width:120
+                height:100
                 contentItem: Text {
                     text:"DELAY START "
                        color: "white"      // Initial text color
@@ -1466,14 +4457,13 @@ Rectangle{
 
 
         }
-    }
+
 
 
     Rectangle {
         id: rec_time
-        width: 240
-        height: 120
-        color:"#000"
+        width: 220
+        height: 200
         gradient: Gradient {
                GradientStop { position: 0.0; color: "#000" }
                GradientStop { position: 1.0; color: "#0B3041" }
@@ -1493,7 +4483,7 @@ Rectangle{
             anchors.centerIn: parent
             font.pixelSize: 64
             color: "white"
-            text: "89:59"  // Initial text, updated in C++
+            text: numberDisplayinCottPage.text  // Initial text, updated in C++
 
             // Font styling (use a bold and thick font similar to the image)
             font.bold: true
@@ -1507,9 +4497,8 @@ Rectangle{
     {
         id :btn_cotton
         width:240
-        height:120
+        height:200
         anchors.left: rec_time
-
         anchors.top: parent.top
         anchors.topMargin: 100
         anchors.leftMargin: 20
@@ -1519,8 +4508,8 @@ Rectangle{
 
             Image {
                        source: "images/cotton.png"   // Path to your image
-                       width: 130                  // Image width
-                       height: 100                 // Image height
+                       width: 150                  // Image width
+                       height: 150                 // Image height
 
                        anchors.left: parent.left
                        anchors.leftMargin: 10
@@ -1546,17 +4535,14 @@ Rectangle{
                           orientation: Gradient.Horizontal
                       }
            }
-        onClicked: {
 
-            page2.visible = true;
-            homePage.visible = false;
-           }
     }
 
 
 
     Row
     {
+        id:row_progressBar
         width: 480
          anchors.bottom: parent.bottom
          anchors.bottomMargin: 50
@@ -1610,7 +4596,7 @@ Rectangle{
                          Text {
                              id:numberDisplay
                              anchors.centerIn: parent
-                             text: "90\nmin"
+                             text: numberDisplayinCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -1620,31 +4606,6 @@ Rectangle{
                  }
 
 
-                 // Interaction Logic
-                 MouseArea {
-                     id: dialArea
-                     anchors.fill: parent
-
-                     property real dialValue: 90 // Initial value
-
-                     onPressed: {
-                         console.log("Dial pressed!")
-                     }
-
-                     onPositionChanged: {
-                         // Simple increment/decrement based on mouse movement
-                         if (mouse.x > dial.width / 2) {
-                             dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
-                         } else {
-                             dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
-                         }
-                         numberDisplay.text = dialValue + "\nmin"; // Update display
-                     }
-
-                     onReleased: {
-                         console.log("Dial released!");
-                     }
-                 }
 
              }
 
@@ -1698,7 +4659,7 @@ Rectangle{
                          Text {
                              id:numberDisplayWaterTemp
                              anchors.centerIn: parent
-                             text: "90\nC"
+                             text: numberDisplayWaterTempinCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -1708,31 +4669,6 @@ Rectangle{
                  }
 
 
-                 // Interaction Logic
-                 MouseArea {
-                     id: dialAreaWaterTemp
-                     anchors.fill: parent
-
-                     property real dialValue: 90 // Initial value
-
-                     onPressed: {
-                         console.log("Dial Water Temp pressed!")
-                     }
-
-                     onPositionChanged: {
-                         // Simple increment/decrement based on mouse movement
-                         if (mouse.x > dialWaterTemp.width / 2) {
-                             dialValue = Math.min(90, dialValue + 1); // Max 120 minutes
-                         } else {
-                             dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
-                         }
-                         numberDisplayWaterTemp.text = dialValue+"\nC" ; // Update display
-                     }
-
-                     onReleased: {
-                         console.log("Dial Water Temp released!");
-                     }
-                 }
 
              }
 
@@ -1786,7 +4722,7 @@ Rectangle{
                          Text {
                              id:numberDisplayWaterLevel
                              anchors.centerIn: parent
-                             text: "3"
+                             text: numberDisplayWaterLevelinCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -1796,31 +4732,6 @@ Rectangle{
                  }
 
 
-                 // Interaction Logic
-                 MouseArea {
-                     id: dialAreaWaterLevel
-                     anchors.fill: parent
-
-                     property real dialValue: 3 // Initial value
-
-                     onPressed: {
-                         console.log("Dial Water Level pressed!")
-                     }
-
-                     onPositionChanged: {
-                         // Simple increment/decrement based on mouse movement
-                         if (mouse.x > dialWaterLevel.width / 2) {
-                             dialValue = Math.min(5, dialValue + 1); // Max 120 minutes
-                         } else {
-                             dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
-                         }
-                         numberDisplayWaterLevel.text = dialValue ; // Update display
-                     }
-
-                     onReleased: {
-                         console.log("Dial Water Level released!");
-                     }
-                 }
 
              }
 
@@ -1874,7 +4785,7 @@ Rectangle{
                          Text {
                              id:numberDisplayWaterTempreture
                              anchors.centerIn: parent
-                             text: "2"
+                             text: numberDisplayWaterTempretureinCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -1882,37 +4793,669 @@ Rectangle{
                      }
                  }
                  }
-                 // Interaction Logic
-                 MouseArea {
-                     id: dialAreaWaterTempreture
-                     anchors.fill: parent
 
-                     property real dialValue: 2 // Initial value
-
-                     onPressed: {
-                         console.log("Dial Water Tempreture pressed!")
-                     }
-
-                     onPositionChanged: {
-                         // Simple increment/decrement based on mouse movement
-                         if (mouse.x > dialWaterTempreture.width / 2) {
-                             dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
-                         } else {
-                             dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
-                         }
-                         numberDisplayWaterTempreture.text = dialValue ; // Update display
-                     }
-
-                     onReleased: {
-                         console.log("Dial Water Tempreture released!");
-                     }
-                 }
              }
          }
     }
 
+    Button{
+        id:btn_GoinCottPage
+        anchors.bottom: parent.bottom
+        anchors.right: colButtons1.right
+        anchors.bottomMargin: 20
+        anchors.rightMargin: 50
+        anchors.top:colButtons1.bottom
+        anchors.topMargin: 20
+
+        contentItem: Text {
+               text: "GO"
+               color: "white"      // Initial text color
+               font.pixelSize: 16
+               horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+               verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+           }
+        background: Rectangle {
+             gradient: Gradient {
+            GradientStop {
+                position: 0.0
+                color: "#1b517a"
+            } // Left color
+            GradientStop {
+                position: 1.0
+                color: "#0e0f10"
+            } // Right color
+            orientation: Gradient.Horizontal
+             }
+            radius: 8
+            anchors.fill: parent
+           }
+
+        onClicked: {
+            cottonPage.visible = false;
+            goPageforCottPage.visible = true;
+        }
+    }
+
 }
-Rectangle {
+
+    Rectangle {
+    id:goPageforCottPage
+    width:800
+    height:500
+    gradient: Gradient {
+           GradientStop { position: 0.0; color: "#1B5178" }
+           GradientStop { position: 1.0; color: "#000" }
+           orientation: Gradient.Horizontal
+
+       }
+    visible: false
+
+    Timer {
+            id: countdownTimer
+            interval: 1000  // Trigger every second
+            repeat: true
+            running: true
+
+            property int totalSeconds:90 * 60 + 59  // Start time: 89 minutes 59 seconds
+            onTriggered: {
+                if (totalSeconds > 0) {
+                    totalSeconds--;  // Decrement total seconds
+                    var minutes = Math.floor(totalSeconds / 60);
+                    var secs = totalSeconds % 60;
+                    var seconds = ( minutes) + ":" +  secs
+                    timerTextIngoPageforCottPage.text = seconds;
+                } else {
+                    countdownTimer.stop();  // Stop the timer when finished
+                }
+            }
+
+
+        }
+
+
+    Button{
+        contentItem: Text {
+               text: "←"
+               color: "white"      // Initial text color
+               font.pixelSize: 16
+               horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+               verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+           }
+        background: Rectangle {
+             gradient: Gradient {
+            GradientStop {
+                position: 0.0
+                color: "#1b517a"
+            } // Left color
+            GradientStop {
+                position: 1.0
+                color: "#0e0f10"
+            } // Right color
+            orientation: Gradient.Horizontal
+             }
+            radius: 8
+            anchors.fill: parent
+           }
+        onClicked: {
+            cottonPage.visible = true;
+            goPageforCottPage.visible = false;
+        }
+
+    }
+
+    Column
+    {
+        id:colButtons1IngoPageforCottPage
+        width:120
+      //  height:350
+        Layout.alignment:Qt.AlignLeft
+        opacity: 0.4
+
+        spacing: 20
+        anchors.right: parent.right
+        anchors.rightMargin: 20
+        anchors.leftMargin: 20
+        anchors.top: rec_timeIngoPageforCottPage.top
+
+        Button
+            {
+                id:btn_spinIngoPageforCottPage
+                width:120
+                height:100
+                contentItem: Text {
+                       text: "SPIN"
+                       color: "white"      // Initial text color
+                       font.pixelSize: 16
+                       horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                       verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+                   }
+                // Center the button horizontally at the top of the parent
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.margins: 10  // Optional: Add a margin from the top
+
+                background: Rectangle {
+                    id:btn_back_spinIngoPageforCottPage
+                     color: buttonSpinClicked ? "#305733" : "#1F3D51"
+                       radius: 8
+                       anchors.fill: parent
+                   }
+
+
+
+            }
+
+        Button
+        {
+            id:btn_ExtraSpinIngoPageforCottPage
+            width:120
+            height:100
+            contentItem: Text {
+                text:"EXTRA SPIN"
+                   color: "white"      // Initial text color
+                   font.pixelSize: 16
+                   horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                   verticalAlignment: Text.AlignVCenter   // Vertically center the text
+               }
+         //   width:130
+            font.pixelSize: 16
+
+            // Center the button horizontally at the top of the parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.margins: 10  // Optional: Add a margin from the top
+
+
+            background: Rectangle {
+                id:btn_back_extraSpinIngoPageforCottPage
+                color: buttonExtraSpinClicked ? "#305733" : "#1F3D51"
+                   radius: 8
+                   anchors.fill: parent
+               }
+
+        }
+
+        Button
+        {
+            id:btn_tubCleanIngoPageforCottPage
+            width:120
+            height:100
+            contentItem: Text {
+                text:"TUB CLEAN"
+                   color: "white"      // Initial text color
+                   font.pixelSize: 16
+                   horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                   verticalAlignment: Text.AlignVCenter   // Vertically center the text
+               }
+            font.pixelSize: 16
+
+            // Center the button horizontally at the top of the parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.margins: 10  // Optional: Add a margin from the top
+
+            background: Rectangle {
+                id:btn_back_tubCleanIngoPageforCottPage
+                color: buttonTubCleanClicked ? "#305733" : "#1F3D51"
+                   radius: 8
+                   anchors.fill: parent
+               }
+
+        }
+    }
+
+    Column
+    {
+        id:colButtons2IngoPageforCottPage
+        width:120
+       //height:350
+        Layout.alignment:Qt.AlignRight
+        spacing: 20
+        opacity: 0.4
+        anchors.right: colButtons1IngoPageforCottPage.left
+        anchors.top: rec_timeIngoPageforCottPage.top
+        anchors.rightMargin: 20
+        anchors.leftMargin: 20
+
+        Button
+        {
+            id:btn_rinseIngoPageforCottPage
+            width:120
+            height:100
+            contentItem: Text {
+                text:"RINSE"
+                   color: "white"      // Initial text color
+                   font.pixelSize: 16
+                   horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                   verticalAlignment: Text.AlignVCenter   // Vertically center the text
+               }
+
+            font.pixelSize: 16
+
+            // Center the button horizontally at the top of the parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.margins: 10  // Optional: Add a margin from the top
+
+            background: Rectangle {
+                id:btn_back_rinseIngoPageforCottPage
+                color: buttonRinseClicked ? "#305733" : "#1F3D51"
+                   radius: 8
+                   anchors.fill: parent
+               }
+
+        }
+
+        Button
+        {
+            id:btn_SoakIngoPageforCottPage
+            width:120
+            height:100
+            contentItem: Text {
+                text:"SOAK"
+                   color: "white"      // Initial text color
+                   font.pixelSize: 16
+                   horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                   verticalAlignment: Text.AlignVCenter   // Vertically center the text
+               }
+            font.pixelSize: 16
+
+            // Center the button horizontally at the top of the parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.margins: 10  // Optional: Add a margin from the top
+
+            background: Rectangle {
+                id:btn_back_soakIngoPageforCottPage
+                color: buttonSoakClicked ? "#305733" : "#1F3D51"
+                   radius: 8
+                   anchors.fill: parent
+               }
+
+        }
+
+        Button
+        {
+            id:btn_DelayStartIngoPageforCottPage
+            width:120
+            height:100
+            contentItem: Text {
+                text:"DELAY START "
+                   color: "white"      // Initial text color
+                   font.pixelSize: 16
+                   horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                   verticalAlignment: Text.AlignVCenter   // Vertically center the text
+               }
+            font.pixelSize: 16
+
+            // Center the button horizontally at the top of the parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.bottom
+            anchors.margins: 10
+
+
+            background: Rectangle {
+                id:btn_back_delayStartIngoPageforCottPage
+                color: buttonDelayStartClicked? "#305733" : "#1F3D51"
+                   radius: 8
+                   anchors.fill: parent
+               }
+
+        }
+
+    }
+
+
+
+
+    Rectangle {
+        id: rec_timeIngoPageforCottPage
+        width: 220
+        height: 200
+        gradient: Gradient {
+               GradientStop { position: 0.0; color: "#000" }
+               GradientStop { position: 1.0; color: "#0B3041" }
+
+           }
+
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 100 // Optional: Add a margin from the top
+
+
+
+
+        // Display the Timer in the Center
+        Text {
+            id: timerTextIngoPageforCottPage
+            anchors.centerIn: parent
+            font.pixelSize: 64
+            color: "white"
+            text: "89:59"  // Initial text, updated in C++
+
+            // Font styling (use a bold and thick font similar to the image)
+            font.bold: true
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+    }
+
+
+    Button
+    {
+        id :btn_cottonIngoPageforCottPage
+        width:240
+        height:200
+        anchors.left: rec_timeIngoPageforCottPage
+        anchors.top: parent.top
+        anchors.topMargin: 100
+        anchors.leftMargin: 20
+        opacity: 0.4
+        contentItem: Row {
+            anchors.fill: parent
+
+            Image {
+                       source: "images/cotton.png"   // Path to your image
+                       width: 150                  // Image width
+                       height: 150                 // Image height
+
+                       anchors.left: parent.left
+                       anchors.leftMargin: 10
+                       anchors.verticalCenter: parent.verticalCenter
+                   }
+            Text {
+                      text: "COTTON"
+                      color: "white"              // Initial text color
+                      font.pixelSize: 17
+                      anchors.right: parent.right
+                      anchors.rightMargin: 15     // Adjusted margin for right alignment
+                      anchors.leftMargin: 15
+            }
+}
+
+        background: Rectangle {
+               radius: 8
+               anchors.fill: parent
+               gradient: Gradient {
+                          GradientStop { position: 0.0; color: "white" }     // Left color
+                          GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                          GradientStop { position: 1.0; color: "black" }    // Right color
+                          orientation: Gradient.Horizontal
+                      }
+           }
+
+    }
+
+
+
+    Row
+    {
+        id:row_progressBarIngoPageforCottPage
+        width: 480
+         anchors.bottom: parent.bottom
+         anchors.bottomMargin: 50
+         anchors.leftMargin: 20
+         spacing: 20
+
+         opacity: 0.4
+         Column{
+             id:col_washTimeIngoPageforCottPage
+             width:120
+             anchors.left: parent.left
+             spacing: 20
+             Text {
+                 text: "Wash time"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 120
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialIngoPageforCottPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#2588BF"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#2588BF" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayIngoPageforCottPage
+                             anchors.centerIn: parent
+                             text: numberDisplayinCottPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+
+
+             }
+
+         }
+
+         Column{
+             id:col_waterTempIngoPageforCottPage
+             width:100
+             anchors.left: col_washTimeIngoPageforCottPage.right
+             spacing: 20
+             Text {
+                 text: "Water Temp"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 100
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialWaterTempIngoPageforCottPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#B81219"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#B81219" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayWaterTempIngoPageforCottPage
+                             anchors.centerIn: parent
+                             text: numberDisplayWaterTempinCottPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+
+
+             }
+
+         }
+
+         Column{
+             id:col_waterLevelIngoPageforCottPage
+             width:120
+             anchors.left: col_waterTempIngoPageforCottPage.right
+             spacing: 20
+             Text {
+                 text: "Water Level"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 120
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialWaterLevelIngoPageforCottPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#fff"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#fff" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayWaterLevelIngoPageforCottPage
+                             anchors.centerIn: parent
+                             text: numberDisplayWaterLevelinCottPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+
+
+             }
+
+         }
+
+         Column{
+             id:col_waterTempretureIngoPageforCottPage
+             width:120
+             anchors.left: col_waterLevelIngoPageforCottPage.right
+             spacing: 20
+             Text {
+                 text: "Water Tempreture"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 120
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialWaterTempretureIngoPageforCottPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#2F2780"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#2F2780" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayWaterTempretureIngoPageforCottPage
+                             anchors.centerIn: parent
+                             text:numberDisplayWaterTempretureinCottPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+             }
+         }
+    }
+
+
+}
+
+
+    Rectangle {
         id: page2
         anchors.fill: parent
         color: "lightgreen"
@@ -1925,8 +5468,10 @@ Rectangle {
             text: "Back to Page 1"
             onClicked: {
                 page2.visible = false;
-                homePage.visible = true;
+                cottonPage.visible = true;
             }
         }
     }
-}
+    }
+
+
