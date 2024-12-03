@@ -754,6 +754,94 @@ Rectangle{
         visible: false
 
 
+        Button{
+            id:btn_LightinCottPage
+            width:parent.width/3/2
+            height:( parent.height)/3
+            anchors.top: parent.top
+            anchors.topMargin: 20
+            anchors.rightMargin: 10
+            anchors.left:btn_cottoninCottPage.left
+            opacity: 0.4
+
+            contentItem: Row {
+                anchors.fill: parent
+
+                Image {
+                           source: "images/light.png"   // Path to your image
+                           width: 85                  // Image width
+                           height:  parent.height                // Image height
+
+                           anchors.left: parent.left
+                           anchors.leftMargin: 10
+                           anchors.verticalCenter: parent.verticalCenter
+                       }
+                Text {
+                          text: "LIGHT"
+                          color: "white"              // Initial text color
+                          font.pixelSize: 12
+                          anchors.right: parent.right
+                }
+    }
+
+            background: Rectangle {
+                   radius: 8
+                   anchors.fill: parent
+                   gradient: Gradient {
+                              GradientStop { position: 0.0; color: "white" }     // Left color
+                              GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                              GradientStop { position: 1.0; color: "black" }    // Right color
+                              orientation: Gradient.Horizontal
+                          }
+               }
+
+
+        }
+
+
+        Button{
+            id:btn_WhiteinCottPage
+            width:parent.width/3/2
+            height:( parent.height)/3
+            anchors.top: parent.top
+            anchors.topMargin: 20
+            anchors.left:btn_LightinCottPage.right
+            opacity: 0.4
+
+            contentItem: Row {
+                anchors.fill: parent
+
+                Image {
+                           source: "images/white.png"   // Path to your image
+                           width: 85                  // Image width
+                           height:  parent.height                // Image height
+                           anchors.left: parent.left
+                           anchors.leftMargin: 10
+                           anchors.verticalCenter: parent.verticalCenter
+                       }
+                Text {
+                          text: "WHITE"
+                          color: "white"              // Initial text color
+                          font.pixelSize: 12
+                          anchors.right: parent.right
+                }
+    }
+
+            background: Rectangle {
+                   radius: 8
+                   anchors.fill: parent
+                   gradient: Gradient {
+                              GradientStop { position: 0.0; color: "white" }     // Left color
+                              GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                              GradientStop { position: 1.0; color: "black" }    // Right color
+                              orientation: Gradient.Horizontal
+                          }
+               }
+
+
+        }
+
+
             Button {
                 id:btn_cottoninCottPage
                 width: parent.width/3
@@ -802,17 +890,6 @@ Rectangle{
                                                                  }
         }
 
-     /*       Row
-            {
-                width: parent.width*2/3
-                height:parent.height/3
-                anchors.bottomMargin: 50
-                spacing: 20
-                //anchors.right: parent.right
-                anchors.left:btn_cottoninCottPage.right
-                anchors.bottom: btn_cottoninCottPage.bottom
-*/
-                //anchors.centerIn: parent
 
                 Column{
                      id:col_washTimeinCottPage
@@ -1269,17 +1346,6 @@ Rectangle{
                                                                  }
         }
 
-     /*       Row
-            {
-                width: parent.width*2/3
-                height:parent.height/3
-                anchors.bottomMargin: 50
-                spacing: 20
-                //anchors.right: parent.right
-                anchors.left:btn_cottoninCottPage.right
-                anchors.bottom: btn_cottoninCottPage.bottom
-*/
-                //anchors.centerIn: parent
 
                 Column{
                      id:col_washTimeinWoolPage
@@ -1633,7 +1699,46 @@ Rectangle{
                          }
                      }
                  }
-}
+
+                Button{
+                    id:btn_nextPageinWoolPage
+                    anchors.bottom: parent.bottom
+                    anchors.right: col_waterTempretureinWoolPage.right
+                    anchors.bottomMargin: 50
+                    anchors.leftMargin: 50
+
+                    contentItem: Text {
+                           text: "NEXT"
+                           color: "white"      // Initial text color
+                           font.pixelSize: 16
+                           horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                           verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+                       }
+                    background: Rectangle {
+                         gradient: Gradient {
+                        GradientStop {
+                            position: 0.0
+                            color: "#1b517a"
+                        } // Left color
+                        GradientStop {
+                            position: 1.0
+                            color: "#0e0f10"
+                        } // Right color
+                        orientation: Gradient.Horizontal
+                         }
+                        radius: 8
+                        anchors.fill: parent
+                       }
+
+                    onClicked: {
+                        flickableContentWoolPage.visible = false;
+                        //woolPage.visible = true;
+                    }
+                }
+
+
+    }
 
     Flickable{
         id: flickableContentDarkPage
@@ -4134,72 +4239,6 @@ Rectangle{
                  }
 }
 
-
-    /*
-    Rectangle {
-
-        id:startPage
-        width:800
-        height:500
-        visible: true
-
-        gradient: Gradient {
-               GradientStop { position: 0.0; color: "#1B5178" }
-               GradientStop { position: 1.0; color: "#000" }
-               orientation: Gradient.Horizontal
-}
-
-
-        Image{
-            id:img_logo
-            width:150
-            height: 150
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.centerIn: parent
-            source: "images/ElarabyLogo.png"
-            opacity: 0.0
-
-            NumberAnimation {
-                       id: fadeAnimation
-                       target: img_logo
-                       property: "opacity"
-                       from: 0.0
-                       to: 1.0
-                       duration: 3000
-                       loops: Animation.Infinite
-                       easing.type: Easing.InOutQuad
-
-                       onStopped: {
-                                      // After animation stops, start the timer to navigate
-                                      pageTransitionTimer.start();
-                                  }
-                   }
-
-                   Component.onCompleted:
-                   {
-                       console.log("Starting fade animation.");
-                       fadeAnimation.start()
-                   }
-
-               }
-
-        // Timer to transition to the next page
-           Timer {
-               id: pageTransitionTimer
-               interval: 2000 // 2 seconds after animation completes
-               running: false
-               repeat: false
-               onTriggered: {
-
-                   console.log("Timer triggered. Switching pages.");
-
-                   startPage.visible = false;
-                   homePage.visible = true;
-               }
-           }
-    }
-*/
-
     Rectangle {
     id:cottonPage
     width:800
@@ -4491,6 +4530,7 @@ Rectangle{
             verticalAlignment: Text.AlignVCenter
         }
     }
+
 
 
     Button
@@ -4943,8 +4983,6 @@ Rectangle{
                        radius: 8
                        anchors.fill: parent
                    }
-
-
 
             }
 
@@ -5454,24 +5492,1258 @@ Rectangle{
 
 }
 
-
+   /*
     Rectangle {
-        id: page2
-        anchors.fill: parent
-        color: "lightgreen"
-        //width: 800
-       // height: 500
-        visible: false
+    id:woolPage
+    width:800
+    height:500
+    gradient: Gradient {
+           GradientStop { position: 0.0; color: "#1B5178" }
+           GradientStop { position: 1.0; color: "#000" }
+           orientation: Gradient.Horizontal
 
-        Button {
-            anchors.centerIn: parent
-            text: "Back to Page 1"
-            onClicked: {
-                page2.visible = false;
-                cottonPage.visible = true;
+       }
+    visible: false
+
+
+    Button{
+        contentItem: Text {
+               text: "←"
+               color: "white"      // Initial text color
+               font.pixelSize: 16
+               horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+               verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+           }
+        background: Rectangle {
+             gradient: Gradient {
+            GradientStop {
+                position: 0.0
+                color: "#1b517a"
+            } // Left color
+            GradientStop {
+                position: 1.0
+                color: "#0e0f10"
+            } // Right color
+            orientation: Gradient.Horizontal
+             }
+            radius: 8
+            anchors.fill: parent
+           }
+        onClicked: {
+            woolPage.visible = false;
+            flickableContentWoolPage.visible = true;
+        }
+
+    }
+
+        Column
+        {
+            id:colButtons1InWoolPage
+            width:120
+          //  height:350
+            Layout.alignment:Qt.AlignLeft
+
+            spacing: 20
+            anchors.right: parent.right
+            anchors.rightMargin: 20
+            anchors.leftMargin: 20
+            anchors.top: rec_timeInWoolPage.top
+
+            Button
+                {
+                    id:btn_spinInWoolPage
+                    width:120
+                    height:100
+                    contentItem: Text {
+                           text: "SPIN"
+                           color: "white"      // Initial text color
+                           font.pixelSize: 16
+                           horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                           verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+                       }
+                    // Center the button horizontally at the top of the parent
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: parent.top
+                    anchors.margins: 10  // Optional: Add a margin from the top
+
+                    background: Rectangle {
+                        id:btn_back_spinInWoolPage
+                         color: buttonSpinClicked ? "#305733" : "#1F3D51"
+                           radius: 8
+                           anchors.fill: parent
+                       }
+
+
+                    onClicked: {
+                        buttonSpinClicked = !buttonSpinClicked; // Set the flag to true after the button is clicked
+                       }
+                }
+
+            Button
+            {
+                id:btn_ExtraSpinInWoolPage
+                width:120
+                height:100
+                contentItem: Text {
+                    text:"EXTRA SPIN"
+                       color: "white"      // Initial text color
+                       font.pixelSize: 16
+                       horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                       verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                   }
+             //   width:130
+                font.pixelSize: 16
+
+                // Center the button horizontally at the top of the parent
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.margins: 10  // Optional: Add a margin from the top
+
+
+                background: Rectangle {
+                    id:btn_back_extraSpinInWoolPage
+                    color: buttonExtraSpinClicked ? "#305733" : "#1F3D51"
+                       radius: 8
+                       anchors.fill: parent
+                   }
+                onClicked: {
+                    buttonExtraSpinClicked = !buttonExtraSpinClicked; // Set the flag to true after the button is clicked
+                   }
+            }
+
+            Button
+            {
+                id:btn_tubCleanInWoolPage
+                width:120
+                height:100
+                contentItem: Text {
+                    text:"TUB CLEAN"
+                       color: "white"      // Initial text color
+                       font.pixelSize: 16
+                       horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                       verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                   }
+                font.pixelSize: 16
+
+                // Center the button horizontally at the top of the parent
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.bottom: parent.bottom
+                anchors.margins: 10  // Optional: Add a margin from the top
+
+                background: Rectangle {
+                    id:btn_back_tubCleanInWoolPage
+                    color: buttonTubCleanClicked ? "#305733" : "#1F3D51"
+                       radius: 8
+                       anchors.fill: parent
+                   }
+                onClicked: {
+                    buttonTubCleanClicked = !buttonTubCleanClicked; // Set the flag to true after the button is clicked
+                   }
             }
         }
+
+        Column
+        {
+            id:colButtons2InWoolPage
+            width:120
+           //height:350
+            Layout.alignment:Qt.AlignRight
+            spacing: 20
+            anchors.right: colButtons1InWoolPage.left
+            anchors.top: rec_timeInWoolPage.top
+            anchors.rightMargin: 20
+            anchors.leftMargin: 20
+
+            Button
+            {
+                id:btn_rinseInWoolPage
+                width:120
+                height:100
+                contentItem: Text {
+                    text:"RINSE"
+                       color: "white"      // Initial text color
+                       font.pixelSize: 16
+                       horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                       verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                   }
+
+                font.pixelSize: 16
+
+                // Center the button horizontally at the top of the parent
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.margins: 10  // Optional: Add a margin from the top
+
+                background: Rectangle {
+                    id:btn_back_rinseInWoolPage
+                    color: buttonRinseClicked ? "#305733" : "#1F3D51"
+                       radius: 8
+                       anchors.fill: parent
+                   }
+                onClicked: {
+                    buttonRinseClicked = !buttonRinseClicked; // Set the flag to true after the button is clicked
+                   }
+            }
+
+            Button
+            {
+                id:btn_SoakInWoolPage
+                width:120
+                height:100
+                contentItem: Text {
+                    text:"SOAK"
+                       color: "white"      // Initial text color
+                       font.pixelSize: 16
+                       horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                       verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                   }
+                font.pixelSize: 16
+
+                // Center the button horizontally at the top of the parent
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.margins: 10  // Optional: Add a margin from the top
+
+                background: Rectangle {
+                    id:btn_back_soakInWoolPage
+                    color: buttonSoakClicked ? "#305733" : "#1F3D51"
+                       radius: 8
+                       anchors.fill: parent
+                   }
+                onClicked: {
+                    buttonSoakClicked = !buttonSoakClicked; // Set the flag to true after the button is clicked
+                   }
+            }
+
+            Button
+            {
+                id:btn_DelayStartInWoolPage
+                width:120
+                height:100
+                contentItem: Text {
+                    text:"DELAY START "
+                       color: "white"      // Initial text color
+                       font.pixelSize: 16
+                       horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                       verticalAlignment: Text.AlignVCenter   // Vertically center the text
+                   }
+                font.pixelSize: 16
+
+                // Center the button horizontally at the top of the parent
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.bottom
+                anchors.margins: 10
+
+
+                background: Rectangle {
+                    id:btn_back_delayStartInWoolPage
+                    color: buttonDelayStartClicked? "#305733" : "#1F3D51"
+                       radius: 8
+                       anchors.fill: parent
+                   }
+                onClicked: {
+                    buttonDelayStartClicked = !buttonDelayStartClicked; // Set the flag to true after the button is clicked
+                   }
+            }
+
+
+        }
+
+
+
+    Rectangle {
+        id: rec_timeInWoolPage
+        width: 220
+        height: 200
+        gradient: Gradient {
+               GradientStop { position: 0.0; color: "#000" }
+               GradientStop { position: 1.0; color: "#0B3041" }
+
+           }
+
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 100 // Optional: Add a margin from the top
+
+
+
+
+        // Display the Timer in the Center
+        Text {
+            id: timerTextInWoolPage
+            anchors.centerIn: parent
+            font.pixelSize: 64
+            color: "white"
+            text: numberDisplayinWoolPage.text  // Initial text, updated in C++
+
+            // Font styling (use a bold and thick font similar to the image)
+            font.bold: true
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
     }
+
+    Button
+    {
+        id :btn_woolInWoolPage
+        width:240
+        height:200
+        anchors.left: rec_timeInWoolPage
+        anchors.top: parent.top
+        anchors.topMargin: 100
+        anchors.leftMargin: 20
+
+        contentItem: Row {
+            anchors.fill: parent
+
+            Image {
+                       source: "images/wool.png"   // Path to your image
+                       width: 150                  // Image width
+                       height: 150                 // Image height
+
+                       anchors.left: parent.left
+                       anchors.leftMargin: 10
+                       anchors.verticalCenter: parent.verticalCenter
+                   }
+            Text {
+                      text: "WOOL"
+                      color: "white"              // Initial text color
+                      font.pixelSize: 17
+                      anchors.right: parent.right
+                      anchors.rightMargin: 15     // Adjusted margin for right alignment
+                      anchors.leftMargin: 15
+            }
+}
+
+        background: Rectangle {
+               radius: 8
+               anchors.fill: parent
+               gradient: Gradient {
+                          GradientStop { position: 0.0; color: "white" }     // Left color
+                          GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                          GradientStop { position: 1.0; color: "black" }    // Right color
+                          orientation: Gradient.Horizontal
+                      }
+           }
+
     }
+
+    Row
+    {
+        id:row_progressBarInWoolPage
+        width: 480
+         anchors.bottom: parent.bottom
+         anchors.bottomMargin: 50
+         anchors.leftMargin: 20
+         spacing: 20
+         Column{
+             id:col_washTimeInWoolPage
+             width:120
+             anchors.left: parent.left
+             spacing: 20
+             Text {
+                 text: "Wash time"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 120
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialInWoolPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#2588BF"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#2588BF" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayInWoolPage
+                             anchors.centerIn: parent
+                             text: numberDisplayInWoolPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+
+
+             }
+
+         }
+
+         Column{
+             id:col_waterTempInWoolPage
+             width:100
+             anchors.left: col_washTimeInWoolPage.right
+             spacing: 20
+             Text {
+                 text: "Water Temp"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 100
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialWaterTempInWoolPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#B81219"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#B81219" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayWaterTempInWoolPage
+                             anchors.centerIn: parent
+                             text: numberDisplayWaterTempInWoolPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+
+
+             }
+
+         }
+
+         Column{
+             id:col_waterLevelInWoolPage
+             width:120
+             anchors.left: col_waterTempInWoolPage.right
+             spacing: 20
+             Text {
+                 text: "Water Level"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 120
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialWaterLevelInWoolPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#fff"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#fff" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayWaterLevelInWoolPage
+                             anchors.centerIn: parent
+                             text: numberDisplayWaterLevelInWoolPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+
+
+             }
+
+         }
+
+         Column{
+             id:col_waterTempretureInWoolPage
+             width:120
+             anchors.left: col_waterLevelInWoolPage.right
+             spacing: 20
+             Text {
+                 text: "Water Tempreture"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 120
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialWaterTempretureInWoolPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#2F2780"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#2F2780" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayWaterTempretureInWoolPage
+                             anchors.centerIn: parent
+                             text: numberDisplayWaterTempretureInWoolPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+             }
+         }
+    }
+/*
+    Button{
+        id:btn_GoinCottPageInWoolPage
+        anchors.bottom: parent.bottom
+        anchors.right: colButtons1InWoolPage.right
+        anchors.bottomMargin: 20
+        anchors.rightMargin: 50
+        anchors.top:colButtons1InWoolPage.bottom
+        anchors.topMargin: 20
+
+        contentItem: Text {
+               text: "GO"
+               color: "white"      // Initial text color
+               font.pixelSize: 16
+               horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+               verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+           }
+        background: Rectangle {
+             gradient: Gradient {
+            GradientStop {
+                position: 0.0
+                color: "#1b517a"
+            } // Left color
+            GradientStop {
+                position: 1.0
+                color: "#0e0f10"
+            } // Right color
+            orientation: Gradient.Horizontal
+             }
+            radius: 8
+            anchors.fill: parent
+           }
+
+        onClicked: {
+            woolPage.visible = false;
+            //goPageforWoolPage.visible = true;
+        }
+    }
+
+}
+
+    Rectangle {
+    id:goPageforWoolPage
+    width:800
+    height:500
+    gradient: Gradient {
+           GradientStop { position: 0.0; color: "#1B5178" }
+           GradientStop { position: 1.0; color: "#000" }
+           orientation: Gradient.Horizontal
+
+       }
+    visible: false
+
+    Timer {
+            id: countdownTimerWoolPage
+            interval: 1000  // Trigger every second
+            repeat: true
+            running: true
+
+            property int totalSeconds:90 * 60 + 59  // Start time: 89 minutes 59 seconds
+            onTriggered: {
+                if (totalSeconds > 0) {
+                    totalSeconds--;  // Decrement total seconds
+                    var minutes = Math.floor(totalSeconds / 60);
+                    var secs = totalSeconds % 60;
+                    var seconds = ( minutes) + ":" +  secs
+                    timerTextIngoPageforCottPage.text = seconds;
+                } else {
+                    countdownTimer.stop();  // Stop the timer when finished
+                }
+            }
+
+
+        }
+
+
+    Button{
+        contentItem: Text {
+               text: "←"
+               color: "white"      // Initial text color
+               font.pixelSize: 16
+               horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+               verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+           }
+        background: Rectangle {
+             gradient: Gradient {
+            GradientStop {
+                position: 0.0
+                color: "#1b517a"
+            } // Left color
+            GradientStop {
+                position: 1.0
+                color: "#0e0f10"
+            } // Right color
+            orientation: Gradient.Horizontal
+             }
+            radius: 8
+            anchors.fill: parent
+           }
+        onClicked: {
+            cottonPage.visible = true;
+            goPageforCottPage.visible = false;
+        }
+
+    }
+
+    Column
+    {
+        id:colButtons1IngoPageforWoolPage
+        width:120
+      //  height:350
+        Layout.alignment:Qt.AlignLeft
+        opacity: 0.4
+
+        spacing: 20
+        anchors.right: parent.right
+        anchors.rightMargin: 20
+        anchors.leftMargin: 20
+        anchors.top: rec_timeIngoPageforWoolPage.top
+
+        Button
+            {
+                id:btn_spinIngoPageforWoolPage
+                width:120
+                height:100
+                contentItem: Text {
+                       text: "SPIN"
+                       color: "white"      // Initial text color
+                       font.pixelSize: 16
+                       horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                       verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+                   }
+                // Center the button horizontally at the top of the parent
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.margins: 10  // Optional: Add a margin from the top
+
+                background: Rectangle {
+                    id:btn_back_spinIngoPageforWoolPage
+                     color: buttonSpinClicked ? "#305733" : "#1F3D51"
+                       radius: 8
+                       anchors.fill: parent
+                   }
+
+
+
+            }
+
+        Button
+        {
+            id:btn_ExtraSpinIngoPageforWoolPage
+            width:120
+            height:100
+            contentItem: Text {
+                text:"EXTRA SPIN"
+                   color: "white"      // Initial text color
+                   font.pixelSize: 16
+                   horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                   verticalAlignment: Text.AlignVCenter   // Vertically center the text
+               }
+         //   width:130
+            font.pixelSize: 16
+
+            // Center the button horizontally at the top of the parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.margins: 10  // Optional: Add a margin from the top
+
+
+            background: Rectangle {
+                id:btn_back_extraSpinIngoPageforWoolPage
+                color: buttonExtraSpinClicked ? "#305733" : "#1F3D51"
+                   radius: 8
+                   anchors.fill: parent
+               }
+
+        }
+
+        Button
+        {
+            id:btn_tubCleanIngoPageforWoolPage
+            width:120
+            height:100
+            contentItem: Text {
+                text:"TUB CLEAN"
+                   color: "white"      // Initial text color
+                   font.pixelSize: 16
+                   horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                   verticalAlignment: Text.AlignVCenter   // Vertically center the text
+               }
+            font.pixelSize: 16
+
+            // Center the button horizontally at the top of the parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            anchors.margins: 10  // Optional: Add a margin from the top
+
+            background: Rectangle {
+                id:btn_back_tubCleanIngoPageforWoolPage
+                color: buttonTubCleanClicked ? "#305733" : "#1F3D51"
+                   radius: 8
+                   anchors.fill: parent
+               }
+
+        }
+    }
+
+    Column
+    {
+        id:colButtons2IngoPageforWoolPage
+        width:120
+       //height:350
+        Layout.alignment:Qt.AlignRight
+        spacing: 20
+        opacity: 0.4
+        anchors.right: colButtons1IngoPageforWoolPage.left
+        anchors.top: rec_timeIngoPageforWoolPage.top
+        anchors.rightMargin: 20
+        anchors.leftMargin: 20
+
+        Button
+        {
+            id:btn_rinseIngoPageforWoolPage
+            width:120
+            height:100
+            contentItem: Text {
+                text:"RINSE"
+                   color: "white"      // Initial text color
+                   font.pixelSize: 16
+                   horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                   verticalAlignment: Text.AlignVCenter   // Vertically center the text
+               }
+
+            font.pixelSize: 16
+
+            // Center the button horizontally at the top of the parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.margins: 10  // Optional: Add a margin from the top
+
+            background: Rectangle {
+                id:btn_back_rinseIngoPageforWoolPage
+                color: buttonRinseClicked ? "#305733" : "#1F3D51"
+                   radius: 8
+                   anchors.fill: parent
+               }
+
+        }
+
+        Button
+        {
+            id:btn_SoakIngoPageforWoolPage
+            width:120
+            height:100
+            contentItem: Text {
+                text:"SOAK"
+                   color: "white"      // Initial text color
+                   font.pixelSize: 16
+                   horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                   verticalAlignment: Text.AlignVCenter   // Vertically center the text
+               }
+            font.pixelSize: 16
+
+            // Center the button horizontally at the top of the parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.margins: 10  // Optional: Add a margin from the top
+
+            background: Rectangle {
+                id:btn_back_soakIngoPageforWoolPage
+                color: buttonSoakClicked ? "#305733" : "#1F3D51"
+                   radius: 8
+                   anchors.fill: parent
+               }
+
+        }
+
+        Button
+        {
+            id:btn_DelayStartIngoPageforWoolPage
+            width:120
+            height:100
+            contentItem: Text {
+                text:"DELAY START "
+                   color: "white"      // Initial text color
+                   font.pixelSize: 16
+                   horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                   verticalAlignment: Text.AlignVCenter   // Vertically center the text
+               }
+            font.pixelSize: 16
+
+            // Center the button horizontally at the top of the parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.bottom
+            anchors.margins: 10
+
+
+            background: Rectangle {
+                id:btn_back_delayStartIngoPageforWoolPage
+                color: buttonDelayStartClicked? "#305733" : "#1F3D51"
+                   radius: 8
+                   anchors.fill: parent
+               }
+
+        }
+
+    }
+
+
+
+
+    Rectangle {
+        id: rec_timeIngoPageforWoolPage
+        width: 220
+        height: 200
+        gradient: Gradient {
+               GradientStop { position: 0.0; color: "#000" }
+               GradientStop { position: 1.0; color: "#0B3041" }
+
+           }
+
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 100 // Optional: Add a margin from the top
+
+
+
+
+        // Display the Timer in the Center
+        Text {
+            id: timerTextIngoPageforWoolPage
+            anchors.centerIn: parent
+            font.pixelSize: 64
+            color: "white"
+            text: "89:59"  // Initial text, updated in C++
+
+            // Font styling (use a bold and thick font similar to the image)
+            font.bold: true
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+        }
+    }
+
+
+    Button
+    {
+        id :btn_cottonIngoPageforWoolPage
+        width:240
+        height:200
+        anchors.left: rec_timeIngoPageforWoolPage
+        anchors.top: parent.top
+        anchors.topMargin: 100
+        anchors.leftMargin: 20
+        opacity: 0.4
+        contentItem: Row {
+            anchors.fill: parent
+
+            Image {
+                       source: "images/wool.png"   // Path to your image
+                       width: 150                  // Image width
+                       height: 150                 // Image height
+
+                       anchors.left: parent.left
+                       anchors.leftMargin: 10
+                       anchors.verticalCenter: parent.verticalCenter
+                   }
+            Text {
+                      text: "WOOL"
+                      color: "white"              // Initial text color
+                      font.pixelSize: 17
+                      anchors.right: parent.right
+                      anchors.rightMargin: 15     // Adjusted margin for right alignment
+                      anchors.leftMargin: 15
+            }
+}
+
+        background: Rectangle {
+               radius: 8
+               anchors.fill: parent
+               gradient: Gradient {
+                          GradientStop { position: 0.0; color: "white" }     // Left color
+                          GradientStop { position: 0.2; color: "#6199B7" }  // Middle color
+                          GradientStop { position: 1.0; color: "black" }    // Right color
+                          orientation: Gradient.Horizontal
+                      }
+           }
+
+    }
+
+
+
+    Row
+    {
+        id:row_progressBarIngoPageforWoolPage
+        width: 480
+         anchors.bottom: parent.bottom
+         anchors.bottomMargin: 50
+         anchors.leftMargin: 20
+         spacing: 20
+
+         opacity: 0.4
+         Column{
+             id:col_washTimeIngoPageforWoolPage
+             width:120
+             anchors.left: parent.left
+             spacing: 20
+             Text {
+                 text: "Wash time"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 120
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialIngoPageforWoolPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#2588BF"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#2588BF" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayIngoPageforWoolPage
+                             anchors.centerIn: parent
+                             text: numberDisplayinCottPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+
+
+             }
+
+         }
+
+         Column{
+             id:col_waterTempIngoPageforWoolPage
+             width:100
+             anchors.left: col_washTimeIngoPageforWoolPage.right
+             spacing: 20
+             Text {
+                 text: "Water Temp"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 100
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialWaterTempIngoPageforWoolPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#B81219"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#B81219" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayWaterTempIngoPageforWoolPage
+                             anchors.centerIn: parent
+                             text: numberDisplayWaterTempinWoolPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+
+
+             }
+
+         }
+
+         Column{
+             id:col_waterLevelIngoPageforWoolPage
+             width:120
+             anchors.left: col_waterTempIngoPageforWoolPage.right
+             spacing: 20
+             Text {
+                 text: "Water Level"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 120
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialWaterLevelIngoPageforWoolPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#fff"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#fff" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayWaterLevelIngoPageforWoolPage
+                             anchors.centerIn: parent
+                             text: numberDisplayWaterLevelinCottPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+
+
+             }
+
+         }
+
+         Column{
+             id:col_waterTempretureIngoPageforWoolPage
+             width:120
+             anchors.left: col_waterLevelIngoPageforWoolPage.right
+             spacing: 20
+             Text {
+                 text: "Water Tempreture"
+                 font.pixelSize: 14
+                 color: "white"
+                 horizontalAlignment: Text.AlignHCenter // Horizontally center the text
+                 verticalAlignment: Text.AlignVCenter   // Vertically center the text
+
+             }
+             Item {
+                 width: 120
+                 height: 100
+
+                 anchors.centerIn: parent
+                 // Circular Progress Indicator
+
+                 Rectangle {
+                     id:dialWaterTempretureIngoPageforWoolPage
+                     anchors.centerIn: parent
+                     width: 100
+                     height: 100
+                     radius: width / 2
+                     color: "#2F2780"
+                     //border.color: "blue"
+                    // border.width: 8
+
+                     gradient: Gradient {
+                            GradientStop { position: 0.0; color: "#2F2780" }
+                            GradientStop { position: 1.0; color: "#223853" }
+                            orientation: Gradient.Horizontal
+
+                        }
+
+                     Rectangle {
+                         anchors.centerIn: parent
+                         width: 75
+                         height: 75
+                         radius: width / 2
+                         //border.color: "blue"
+                        // border.width: 8
+                         color: "#194767"
+                         Text {
+                             id:numberDisplayWaterTempretureIngoPageforWoolPage
+                             anchors.centerIn: parent
+                             text:numberDisplayWaterTempretureinWoolPage.text
+                             font.pixelSize: 18
+                             horizontalAlignment: Text.AlignHCenter
+                             verticalAlignment: Text.AlignVCenter
+                             color: "white"
+                     }
+                 }
+                 }
+
+             }
+         }
+    }
+
+
+}
+   */
+}
 
 
