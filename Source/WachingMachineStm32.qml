@@ -11,6 +11,9 @@ Rectangle{
     property bool buttonSoakClicked: false
     property bool buttonDelayStartClicked: false
 
+    property real dialValuewashTimeInCottonPage: 90 // Initial value
+
+
     width: 800
     height: 500
 
@@ -67,9 +70,12 @@ Rectangle{
                                                      text: "DARKs\n غامق \n 90 \n min"
                                                      color: "white"              // Initial text color
                                                      font.pixelSize: 17
+                                                    // font.family: "fonts/ARABICBLACK.otf"
                                                      anchors.right: parent.right
 
                                            }
+
+
                                }
 
                                        background: Rectangle {
@@ -842,7 +848,7 @@ Rectangle{
         }
 
 
-            Button {
+        Button {
                 id:btn_cottoninCottPage
                 width: parent.width/3
                 height:( parent.height)/3
@@ -891,7 +897,7 @@ Rectangle{
         }
 
 
-                Column{
+        Column{
                      id:col_washTimeinCottPage
                      width:250
                      anchors.left:btn_cottoninCottPage.right
@@ -912,7 +918,7 @@ Rectangle{
                          anchors.centerIn: parent
                          // Circular Progress Indicator
                          Rectangle {
-                             id:dialinCottPage
+                             id:dialwashTimeinCottPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -934,7 +940,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayinCottPage
+                                     id:numberDisplaywashTimeinCottPage
                                      anchors.centerIn: parent
                                      text: "90\nmin"
                                      font.pixelSize: 25
@@ -946,10 +952,9 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreainCottPage
+                             id: dialAreawashTimeinCottPage
                              anchors.fill: parent
 
-                         property real dialValue: 90 // Initial value
 
 
                              onPressed: {
@@ -961,20 +966,24 @@ Rectangle{
 
 
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialinCottPage.width / 2) {
-                                     dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
+                                 if (mouse.x > dialwashTimeinCottPage.width / 2) {
+                                     dialValuewashTimeInCottonPage = Math.min(120, dialValuewashTimeInCottonPage + 1); // Max 120 minutes
+
+
                                  } else {
-                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                     dialValuewashTimeInCottonPage = Math.max(0, dialValuewashTimeInCottonPage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayinCottPage.text = dialValue + "\nmin"; // Update display
-
-
+                                 numberDisplaywashTimeinCottPage.text = dialValuewashTimeInCottonPage + "\nmin"; // Update display
+                                 console.log("The value is:" + dialValuewashTimeInCottonPage);
 
                                  }
 
 
                              onReleased: {
                                  console.log("Dial released!");
+
+                                        console.log("The dial is:" + dialValuewashTimeInCottonPage);
+
                              }
 
                          }
@@ -1047,7 +1056,7 @@ Rectangle{
                              id: dialAreaWaterTempinCottPage
                              anchors.fill: parent
 
-                             property real dialValue: 90 // Initial value
+                             property real dialValuewaterTempInCottPage: 90 // Initial value
 
                              onPressed: {
                                  console.log("Dial Water Temp pressed!")
@@ -1056,11 +1065,11 @@ Rectangle{
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
                                  if (mouse.x > dialWaterTempinCottPage.width / 2) {
-                                     dialValue = Math.min(90, dialValue + 1); // Max 120 minutes
+                                     dialValuewaterTempInCottPage = Math.min(90, dialValuewaterTempInCottPage + 1); // Max 120 minutes
                                  } else {
-                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                     dialValuewaterTempInCottPage = Math.max(0, dialValuewaterTempInCottPage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempinCottPage.text = dialValue+"\nC" ; // Update display
+                                 numberDisplayWaterTempinCottPage.text = dialValuewaterTempInCottPage+"\nC" ; // Update display
                              }
 
                              onReleased: {
@@ -2692,7 +2701,7 @@ Rectangle{
                          MouseArea {
                              id: dialAreainDelicatePage
                              anchors.fill: parent
-                             property real dialValue: 90 // Initial value
+                             property real dialValueDelicatePage: 90 // Initial value
 
                              onPressed: {
                                  console.log("Dial pressed!")
@@ -2702,12 +2711,12 @@ Rectangle{
 
 
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialinCottPage.width / 2) {
-                                     dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
+                                 if (mouse.x > dialinDelicatePage.width / 2) {
+                                     dialValueDelicatePage = Math.min(120, dialValueDelicatePage + 1); // Max 120 minutes
                                  } else {
-                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                     dialValueDelicatePage = Math.max(0, dialValueDelicatePage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayinCottPage.text = dialValue + "\nmin"; // Update display
+                                 numberDisplayinDelicatePage.text = dialValueDelicatePage + "\nmin"; // Update display
 
                                  }
 
@@ -4522,7 +4531,7 @@ Rectangle{
             anchors.centerIn: parent
             font.pixelSize: 64
             color: "white"
-            text: numberDisplayinCottPage.text  // Initial text, updated in C++
+            text: numberDisplaywashTimeinCottPage.text  // Initial text, updated in C++
 
             // Font styling (use a bold and thick font similar to the image)
             font.bold: true
@@ -4636,7 +4645,7 @@ Rectangle{
                          Text {
                              id:numberDisplay
                              anchors.centerIn: parent
-                             text: numberDisplayinCottPage.text
+                             text: numberDisplaywashTimeinCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -4897,13 +4906,17 @@ Rectangle{
             repeat: true
             running: true
 
-            property int totalSeconds:90 * 60 + 59  // Start time: 89 minutes 59 seconds
+            property int totalSeconds:dialValuewashTimeInCottonPage * 60 + 59  // Start time: 89 minutes 59 seconds
+
+            Component.onCompleted: {
+                    console.log("The value is:" + dialValuewashTimeInCottonPage);
+                }
             onTriggered: {
                 if (totalSeconds > 0) {
                     totalSeconds--;  // Decrement total seconds
                     var minutes = Math.floor(totalSeconds / 60);
                     var secs = totalSeconds % 60;
-                    var seconds = ( minutes) + ":" +  secs
+                    var seconds =  minutes + ":" +  secs
                     timerTextIngoPageforCottPage.text = seconds;
                 } else {
                     countdownTimer.stop();  // Stop the timer when finished
@@ -5287,7 +5300,7 @@ Rectangle{
                          Text {
                              id:numberDisplayIngoPageforCottPage
                              anchors.centerIn: parent
-                             text: numberDisplayinCottPage.text
+                             text: numberDisplaywashTimeinCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter

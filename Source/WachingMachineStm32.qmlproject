@@ -59,8 +59,8 @@ Project {
     }
 
     FontFiles {
-        files: ["fonts/English/MontBlack.ttf",
-            "fonts/English/MontBold.ttf"
+        files: ["fonts/MontBlack.ttf",
+            "fonts/ARABICBLACK.otf"
         ]
     }
 
