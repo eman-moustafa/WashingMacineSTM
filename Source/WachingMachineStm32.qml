@@ -11,8 +11,7 @@ Rectangle{
     property bool buttonSoakClicked: false
     property bool buttonDelayStartClicked: false
 
-    property real dialValuewashTimeInCottonPage: 90 // Initial value
-
+    property real dialValuewashTimeInBaseCottonPage: 90 // Initial value
 
     width: 800
     height: 500
@@ -219,7 +218,7 @@ Rectangle{
                                        onClicked: {
 
                                                   flickableContentPage1.visible = false;
-                                                  flickableContentWoolPage.visible = true;
+                                                  flickableContentBaseWoolPage.visible = true;
                                                  }
                                }
 
@@ -388,7 +387,7 @@ Rectangle{
                                        onClicked: {
 
                                                   flickableContentPage1.visible = false;
-                                                  flickableContentWoolPage.visible = true;
+                                                  flickableContentBaseWoolPage.visible = true;
                                                  }
                                }
 
@@ -527,7 +526,7 @@ Rectangle{
                                    onClicked: {
 
                                               flickableContentPage1.visible = false;
-                                              flickableContentCottonPage.visible = true;
+                                              flickableContentBaseCottonPage.visible = true;
                                              }
                            }
                                Button {
@@ -693,7 +692,7 @@ Rectangle{
                                    onClicked: {
 
                                               flickableContentPage1.visible = false;
-                                              flickableContentCottonPage.visible = true;
+                                              flickableContentBaseCottonPage.visible = true;
                                              }
                            }
                                Button {
@@ -749,7 +748,7 @@ Rectangle{
 
 
     Flickable{
-        id: flickableContentCottonPage
+        id: flickableContentBaseCottonPage
         width: 800 // Screen width
         height:500  // Screen height
         contentWidth : 1400 // Width of the scrollable content
@@ -759,7 +758,7 @@ Rectangle{
 
         visible: false
 
-
+/*
         Button{
             id:btn_LightinCottPage
             width:parent.width/3/2
@@ -800,10 +799,7 @@ Rectangle{
                               orientation: Gradient.Horizontal
                           }
                }
-
-
         }
-
 
         Button{
             id:btn_WhiteinCottPage
@@ -844,12 +840,10 @@ Rectangle{
                           }
                }
 
-
         }
-
-
+*/
         Button {
-                id:btn_cottoninCottPage
+                id:btn_cottoninBaseCottPage
                 width: parent.width/3
                 height:( parent.height)/3
                 anchors.left: parent.left
@@ -892,16 +886,16 @@ Rectangle{
                onClicked: {
 
                                                                   flickableContentPage1.visible = true;
-                                                                  flickableContentCottonPage.visible = false;
+                                                                  flickableContentBaseCottonPage.visible = false;
                                                                  }
         }
 
 
         Column{
-                     id:col_washTimeinCottPage
+                     id:col_washTimeinBaseCottPage
                      width:250
-                     anchors.left:btn_cottoninCottPage.right
-                     anchors.bottom: btn_cottoninCottPage.bottom
+                     anchors.left:btn_cottoninBaseCottPage.right
+                     anchors.bottom: btn_cottoninBaseCottPage.bottom
                      spacing: 20
                      Text {
                          text: "Wash time"
@@ -912,13 +906,13 @@ Rectangle{
                          verticalAlignment: Text.AlignVCenter   // Vertically center the text
                      }
                      Item {
-                         id:item_washTimeinCottPage
+                         id:item_washTimeinBaseCottPage
                          width: 200
                          height: 200
                          anchors.centerIn: parent
                          // Circular Progress Indicator
                          Rectangle {
-                             id:dialwashTimeinCottPage
+                             id:dialwashTimeinBaseCottPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -940,7 +934,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplaywashTimeinCottPage
+                                     id:numberDisplaywashTimeinBaseCottPage
                                      anchors.centerIn: parent
                                      text: "90\nmin"
                                      font.pixelSize: 25
@@ -952,7 +946,7 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreawashTimeinCottPage
+                             id: dialAreawashTimeinBaseCottPage
                              anchors.fill: parent
 
 
@@ -966,15 +960,15 @@ Rectangle{
 
 
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialwashTimeinCottPage.width / 2) {
-                                     dialValuewashTimeInCottonPage = Math.min(120, dialValuewashTimeInCottonPage + 1); // Max 120 minutes
+                                 if (mouse.x > dialwashTimeinBaseCottPage.width / 2) {
+                                     dialValuewashTimeInBaseCottonPage = Math.min(120, dialValuewashTimeInBaseCottonPage + 1); // Max 120 minutes
 
 
                                  } else {
-                                     dialValuewashTimeInCottonPage = Math.max(0, dialValuewashTimeInCottonPage - 1);   // Min 0 minutes
+                                     dialValuewashTimeInBaseCottonPage = Math.max(0, dialValuewashTimeInBaseCottonPage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplaywashTimeinCottPage.text = dialValuewashTimeInCottonPage + "\nmin"; // Update display
-                                 console.log("The value is:" + dialValuewashTimeInCottonPage);
+                                 numberDisplaywashTimeinBaseCottPage.text = dialValuewashTimeInBaseCottonPage + "\nmin"; // Update display
+                                 console.log("The value is:" + dialValuewashTimeInBaseCottonPage);
 
                                  }
 
@@ -982,21 +976,17 @@ Rectangle{
                              onReleased: {
                                  console.log("Dial released!");
 
-                                        console.log("The dial is:" + dialValuewashTimeInCottonPage);
-
+                                        console.log("The dial is:" + dialValuewashTimeInBaseCottonPage);
                              }
-
                          }
-
                      }
-
                  }
 
-                Column{
-                     id:col_waterTempinCottPage
+        Column{
+                     id:col_waterTempinBaseCottPage
                      width:250
-                     anchors.left:col_washTimeinCottPage.right
-                     anchors.bottom: col_washTimeinCottPage.bottom
+                     anchors.left:col_washTimeinBaseCottPage.right
+                     anchors.bottom: col_washTimeinBaseCottPage.bottom
                      spacing: 20
                      Text {
                          text: "Water Temp"
@@ -1014,7 +1004,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterTempinCottPage
+                             id:dialWaterTempinBaseCottPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -1039,7 +1029,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterTempinCottPage
+                                     id:numberDisplayWaterTempinBaseCottPage
                                      anchors.centerIn: parent
                                      text: "90\nC"
                                      font.pixelSize: 25
@@ -1053,10 +1043,10 @@ Rectangle{
 
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterTempinCottPage
+                             id: dialAreaWaterTempinBaseCottPage
                              anchors.fill: parent
 
-                             property real dialValuewaterTempInCottPage: 90 // Initial value
+                             property real dialValuewaterTempInBaseCottPage: 90 // Initial value
 
                              onPressed: {
                                  console.log("Dial Water Temp pressed!")
@@ -1064,28 +1054,26 @@ Rectangle{
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterTempinCottPage.width / 2) {
-                                     dialValuewaterTempInCottPage = Math.min(90, dialValuewaterTempInCottPage + 1); // Max 120 minutes
+                                 if (mouse.x > dialWaterTempinBaseCottPage.width / 2) {
+                                     dialValuewaterTempInBaseCottPage = Math.min(90, dialValuewaterTempInBaseCottPage + 1); // Max 120 minutes
                                  } else {
-                                     dialValuewaterTempInCottPage = Math.max(0, dialValuewaterTempInCottPage - 1);   // Min 0 minutes
+                                     dialValuewaterTempInBaseCottPage = Math.max(0, dialValuewaterTempInBaseCottPage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempinCottPage.text = dialValuewaterTempInCottPage+"\nC" ; // Update display
+                                 numberDisplayWaterTempinBaseCottPage.text = dialValuewaterTempInBaseCottPage+"\nC" ; // Update display
                              }
 
                              onReleased: {
                                  console.log("Dial Water Temp released!");
                              }
                          }
-
                      }
-
                  }
 
-                Column{
-                     id:col_waterLevelinCottPage
+        Column{
+                     id:col_waterLevelinBaseCottPage
                      width:250
-                     anchors.left:col_waterTempinCottPage.right
-                     anchors.bottom: col_waterTempinCottPage.bottom
+                     anchors.left:col_waterTempinBaseCottPage.right
+                     anchors.bottom: col_waterTempinBaseCottPage.bottom
                      spacing: 20
                      Text {
                          text: "Water Level"
@@ -1104,7 +1092,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterLevelinCottPage
+                             id:dialWaterLevelinBaseCottPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -1129,7 +1117,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterLevelinCottPage
+                                     id:numberDisplayWaterLevelinBaseCottPage
                                      anchors.centerIn: parent
                                      text: "3"
                                      font.pixelSize: 25
@@ -1143,10 +1131,10 @@ Rectangle{
 
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterLevelinCottPage
+                             id: dialAreaWaterLevelinBaseCottPage
                              anchors.fill: parent
 
-                             property real dialValue: 3 // Initial value
+                             property real dialValuewaterLevelinBaseCottPage: 3 // Initial value
 
                              onPressed: {
                                  console.log("Dial Water Level pressed!")
@@ -1154,12 +1142,12 @@ Rectangle{
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterLevelinCottPage.width / 2) {
-                                     dialValue = Math.min(5, dialValue + 1); // Max 120 minutes
+                                 if (mouse.x > dialWaterLevelinBaseCottPage.width / 2) {
+                                     dialValuewaterLevelinBaseCottPage = Math.min(5, dialValuewaterLevelinBaseCottPage + 1); // Max 120 minutes
                                  } else {
-                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                     dialValuewaterLevelinBaseCottPage = Math.max(0, dialValuewaterLevelinBaseCottPage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterLevelinCottPage.text = dialValue ; // Update display
+                                 numberDisplayWaterLevelinBaseCottPage.text = dialValuewaterLevelinBaseCottPage ; // Update display
                              }
 
                              onReleased: {
@@ -1171,15 +1159,15 @@ Rectangle{
 
                  }
 
-                Column{
+        Column{
 
-                     id:col_waterTempretureinCottPage
+                     id:col_stainLevelinBaseCottPage
                      width:250
-                     anchors.left:col_waterLevelinCottPage.right
-                     anchors.bottom: col_waterLevelinCottPage.bottom
+                     anchors.left:col_waterLevelinBaseCottPage.right
+                     anchors.bottom: col_waterLevelinBaseCottPage.bottom
                      spacing: 20
                      Text {
-                         text: "Water Tempreture"
+                         text: "Stain Level"
                          font.pixelSize: 20
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -1194,7 +1182,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterTempretureinCottPage
+                             id:dialstainLevelinBaseCottPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -1219,7 +1207,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterTempretureinCottPage
+                                     id:numberDisplaystainLevelinBaseCottPage
                                      anchors.centerIn: parent
                                      text: "2"
                                      font.pixelSize: 25
@@ -1231,36 +1219,36 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterTempretureinCottPage
+                             id: dialAreastainLevelinBaseCottPage
                              anchors.fill: parent
 
-                             property real dialValue: 2 // Initial value
+                             property real dialValueStainLevelInBaseCottPage: 2 // Initial value
 
                              onPressed: {
-                                 console.log("Dial Water Tempreture pressed!")
+                                 console.log("Dial Stain Level pressed!")
                              }
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterTempretureinCottPage.width / 2) {
-                                     dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
+                                 if (mouse.x > dialstainLevelinBaseCottPage.width / 2) {
+                                     dialValueStainLevelInBaseCottPage = Math.min(15, dialValueStainLevelInBaseCottPage + 1); // Max 120 minutes
                                  } else {
-                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                     dialValueStainLevelInBaseCottPage = Math.max(0, dialValueStainLevelInBaseCottPage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempretureinCottPage.text = dialValue ; // Update display
+                                 numberDisplaystainLevelinBaseCottPage.text = dialValueStainLevelInBaseCottPage ; // Update display
                              }
 
                              onReleased: {
-                                 console.log("Dial Water Tempreture released!");
+                                 console.log("Dial Stain Level released!");
                              }
                          }
                      }
                  }
 
-                Button{
-                    id:btn_nextPageinCottPage
+        Button{
+                    id:btn_nextPageinBaseCottPage
                     anchors.bottom: parent.bottom
-                    anchors.right: col_waterTempretureinCottPage.right
+                    anchors.right: col_stainLevelinBaseCottPage.right
                     anchors.bottomMargin: 50
                     anchors.leftMargin: 50
 
@@ -1289,7 +1277,7 @@ Rectangle{
                        }
 
                     onClicked: {
-                        flickableContentCottonPage.visible = false;
+                        flickableContentBaseCottonPage.visible = false;
                         cottonPage.visible = true;
                     }
                 }
@@ -1297,7 +1285,7 @@ Rectangle{
     }
 
     Flickable{
-        id: flickableContentWoolPage
+        id: flickableContentBaseWoolPage
         width: 800 // Screen width
         height:500  // Screen height
         contentWidth : 1300 // Width of the scrollable content
@@ -1309,7 +1297,7 @@ Rectangle{
 
 
             Button {
-                id:btn_WoolinWoolPage
+                id:btn_WoolinBaseWoolPage
                 width: parent.width/3
                 height:( parent.height)/3
                 anchors.left: parent.left
@@ -1351,16 +1339,15 @@ Rectangle{
 
                onClicked: {
                                                                   flickableContentPage1.visible = true;
-                                                                  flickableContentWoolPage.visible = false;
+                                                                  flickableContentBaseWoolPage.visible = false;
                                                                  }
         }
 
-
-                Column{
-                     id:col_washTimeinWoolPage
+            Column{
+                     id:col_washTimeinBaseWoolPage
                      width:250
-                     anchors.left:btn_WoolinWoolPage.right
-                     anchors.bottom: btn_WoolinWoolPage.bottom
+                     anchors.left:btn_WoolinBaseWoolPage.right
+                     anchors.bottom: btn_WoolinBaseWoolPage.bottom
                      spacing: 20
                      Text {
                          text: "Wash time"
@@ -1376,7 +1363,7 @@ Rectangle{
                          anchors.centerIn: parent
                          // Circular Progress Indicator
                          Rectangle {
-                             id:dialinWoolPage
+                             id:dialWashTimeinBaseWoolPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -1398,7 +1385,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayinWoolPage
+                                     id:numberDisplayWashTimeinBaseWoolPage
                                      anchors.centerIn: parent
                                      text: "90\nmin"
                                      font.pixelSize: 25
@@ -1410,10 +1397,10 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreainWoolPage
+                             id: dialAreaWashTimeinBaseWoolPage
                              anchors.fill: parent
 
-                         property real dialValue: 90 // Initial value
+                         property real dialValueWashTimeInBaseWoolPage: 90 // Initial value
 
                              onPressed: {
                                  console.log("Dial pressed!")
@@ -1423,14 +1410,12 @@ Rectangle{
 
 
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialinWoolPage.width / 2) {
-                                     dialValue = Math.min(120, dialValue + 1); // Max 120 minutes
+                                 if (mouse.x > dialWashTimeinBaseWoolPage.width / 2) {
+                                     dialValueWashTimeInBaseWoolPage = Math.min(120, dialValueWashTimeInBaseWoolPage + 1); // Max 120 minutes
                                  } else {
-                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                     dialValueWashTimeInBaseWoolPage = Math.max(0, dialValueWashTimeInBaseWoolPage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayinWoolPage.text = dialValue + "\nmin"; // Update display
-
-
+                                 numberDisplayWashTimeinBaseWoolPage.text = dialValueWashTimeInBaseWoolPage + "\nmin"; // Update display
 
                                  }
 
@@ -1445,11 +1430,12 @@ Rectangle{
 
 
 }
-                Column{
-                     id:col_waterTempinWoolPage
+
+            Column{
+                     id:col_waterTempinBaseWoolPage
                      width:250
-                     anchors.left:col_washTimeinWoolPage.right
-                     anchors.bottom: col_washTimeinWoolPage.bottom
+                     anchors.left:col_washTimeinBaseWoolPage.right
+                     anchors.bottom: col_washTimeinBaseWoolPage.bottom
                      spacing: 20
                      Text {
                          text: "Water Temp"
@@ -1467,7 +1453,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterTempinWoolPage
+                             id:dialWaterTempinBaseWoolPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -1492,7 +1478,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterTempinWoolPage
+                                     id:numberDisplayWaterTempinBaseWoolPage
                                      anchors.centerIn: parent
                                      text: "90\nC"
                                      font.pixelSize: 25
@@ -1506,10 +1492,10 @@ Rectangle{
 
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterTempinWoolPage
+                             id: dialAreaWaterTempinBaseWoolPage
                              anchors.fill: parent
 
-                             property real dialValue: 90 // Initial value
+                             property real dialValueWaterTempInBaseWoolPage: 90 // Initial value
 
                              onPressed: {
                                  console.log("Dial Water Temp pressed!")
@@ -1517,12 +1503,12 @@ Rectangle{
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterTempinWoolPage.width / 2) {
-                                     dialValue = Math.min(90, dialValue + 1); // Max 120 minutes
+                                 if (mouse.x > dialWaterTempinBaseWoolPage.width / 2) {
+                                     dialValueWaterTempInBaseWoolPage = Math.min(90, dialValueWaterTempInBaseWoolPage + 1); // Max 120 minutes
                                  } else {
-                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                     dialValueWaterTempInBaseWoolPage = Math.max(0, dialValueWaterTempInBaseWoolPage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempinWoolPage.text = dialValue+"\nC" ; // Update display
+                                 numberDisplayWaterTempinBaseWoolPage.text = dialValueWaterTempInBaseWoolPage+"\nC" ; // Update display
                              }
 
                              onReleased: {
@@ -1534,11 +1520,11 @@ Rectangle{
 
                  }
 
-                Column{
-                     id:col_waterLevelinWoolPage
+            Column{
+                     id:col_waterLevelinBaseWoolPage
                      width:250
-                     anchors.left:col_waterTempinWoolPage.right
-                     anchors.bottom: col_waterTempinWoolPage.bottom
+                     anchors.left:col_waterTempinBaseWoolPage.right
+                     anchors.bottom: col_waterTempinBaseWoolPage.bottom
                      spacing: 20
                      Text {
                          text: "Water Level"
@@ -1557,7 +1543,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterLevelinWoolPage
+                             id:dialWaterLevelinBaseWoolPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -1582,7 +1568,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterLevelinWoolPage
+                                     id:numberDisplayWaterLevelinBaseWoolPage
                                      anchors.centerIn: parent
                                      text: "3"
                                      font.pixelSize: 25
@@ -1596,10 +1582,10 @@ Rectangle{
 
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterLevelinWoolPage
+                             id: dialAreaWaterLevelinBaseWoolPage
                              anchors.fill: parent
 
-                             property real dialValue: 3 // Initial value
+                             property real dialValueWaterLeveInBaseWoolPage: 3 // Initial value
 
                              onPressed: {
                                  console.log("Dial Water Level pressed!")
@@ -1607,12 +1593,12 @@ Rectangle{
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterLevelinWoolPage.width / 2) {
-                                     dialValue = Math.min(5, dialValue + 1); // Max 120 minutes
+                                 if (mouse.x > dialWaterLevelinBaseWoolPage.width / 2) {
+                                     dialValueWaterLeveInBaseWoolPage = Math.min(5, dialValueWaterLeveInBaseWoolPage + 1); // Max 120 minutes
                                  } else {
-                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                     dialValueWaterLeveInBaseWoolPage = Math.max(0, dialValueWaterLeveInBaseWoolPage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterLevelinWoolPage.text = dialValue ; // Update display
+                                 numberDisplayWaterLevelinBaseWoolPage.text = dialValueWaterLeveInBaseWoolPage ; // Update display
                              }
 
                              onReleased: {
@@ -1624,14 +1610,14 @@ Rectangle{
 
                  }
 
-                Column{
-                     id:col_waterTempretureinWoolPage
+            Column{
+                     id:col_stainLevelinBaseWoolPage
                      width:250
-                     anchors.left:col_waterLevelinWoolPage.right
-                     anchors.bottom: col_waterLevelinWoolPage.bottom
+                     anchors.left:col_waterLevelinBaseWoolPage.right
+                     anchors.bottom: col_waterLevelinBaseWoolPage.bottom
                      spacing: 20
                      Text {
-                         text: "Water Tempreture"
+                         text: "Stain Level"
                          font.pixelSize: 20
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -1646,7 +1632,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterTempretureinWoolPage
+                             id:dialstainLevelinBaseWoolPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -1671,7 +1657,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterTempretureinWoolPage
+                                     id:numberDisplaystainLevelinBaseWoolPage
                                      anchors.centerIn: parent
                                      text: "2"
                                      font.pixelSize: 25
@@ -1683,36 +1669,36 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterTempretureinWoolPage
+                             id: dialAreastainLevelinBaseWoolPage
                              anchors.fill: parent
 
-                             property real dialValue: 2 // Initial value
+                             property real dialValueStainLevetInBaseWoolPage: 2 // Initial value
 
                              onPressed: {
-                                 console.log("Dial Water Tempreture pressed!")
+                                 console.log("Dial Stain Level pressed!")
                              }
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterTempretureinWoolPage.width / 2) {
-                                     dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
+                                 if (mouse.x > dialstainLevelinBaseWoolPage.width / 2) {
+                                     dialValueStainLevetInBaseWoolPage = Math.min(15, dialValueStainLevetInBaseWoolPage + 1); // Max 120 minutes
                                  } else {
-                                     dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
+                                     dialValueStainLevetInBaseWoolPage = Math.max(0, dialValueStainLevetInBaseWoolPage - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempretureinWoolPage.text = dialValue ; // Update display
+                                 numberDisplaystainLevelinBaseWoolPage.text = dialValueStainLevetInBaseWoolPage ; // Update display
                              }
 
                              onReleased: {
-                                 console.log("Dial Water Tempreture released!");
+                                 console.log("Dial Stain Level released!");
                              }
                          }
                      }
                  }
 
-                Button{
-                    id:btn_nextPageinWoolPage
+            Button{
+                    id:btn_nextPageinBaseWoolPage
                     anchors.bottom: parent.bottom
-                    anchors.right: col_waterTempretureinWoolPage.right
+                    anchors.right: col_stainLevelinBaseWoolPage.right
                     anchors.bottomMargin: 50
                     anchors.leftMargin: 50
 
@@ -1741,8 +1727,8 @@ Rectangle{
                        }
 
                     onClicked: {
-                        flickableContentWoolPage.visible = false;
-                        //woolPage.visible = true;
+                        flickableContentBaseWoolPage.visible = false;
+                        woolPage.visible = true;
                     }
                 }
 
@@ -1867,8 +1853,8 @@ Rectangle{
                              anchors.fill: parent
 
                          property real dialValue: 90 // Initial value
-                property real col_washTimeinCottPageX : col_washTimeinWoolPage.width / 2 + col_washTimeinCottPage.x; // Center of the button
-                property real col_washTimeinCottPageY : col_washTimeinWoolPage.height / 2 + col_washTimeinCottPage.y; // Center of the button
+                property real col_washTimeinCottPageX : col_washTimeinDarkPage.width / 2 + col_washTimeinDarkPage.x; // Center of the button
+                property real col_washTimeinCottPageY : col_washTimeinDarkPage.height / 2 + col_washTimeinDarkPage.y; // Center of the button
 
 
 
@@ -2082,13 +2068,13 @@ Rectangle{
                  }
 
                 Column{
-                     id:col_waterTempretureinDarkPage
+                     id:col_stainLevelinDarkPage
                      width:250
                      anchors.left:col_waterLevelinDarkPage.right
                      anchors.bottom: col_waterLevelinDarkPage.bottom
                      spacing: 20
                      Text {
-                         text: "Water Tempreture"
+                         text: "Stain Level"
                          font.pixelSize: 20
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -2103,7 +2089,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterTempretureinDarkPage
+                             id:dialstainLevelinDarkPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -2128,7 +2114,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterTempretureinDarkPage
+                                     id:numberDisplaystainLevelinDarkPage
                                      anchors.centerIn: parent
                                      text: "2"
                                      font.pixelSize: 25
@@ -2140,27 +2126,27 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterTempretureinDarkPage
+                             id: dialAreastainLevelinDarkPage
                              anchors.fill: parent
 
                              property real dialValue: 2 // Initial value
 
                              onPressed: {
-                                 console.log("Dial Water Tempreture pressed!")
+                                 console.log("Dial Stain Level pressed!")
                              }
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterTempretureinDarkPage.width / 2) {
+                                 if (mouse.x > dialstainLevelinDarkPage.width / 2) {
                                      dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
                                  } else {
                                      dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempretureinDarkPage.text = dialValue ; // Update display
+                                 numberDisplaystainLevelinDarkPage.text = dialValue ; // Update display
                              }
 
                              onReleased: {
-                                 console.log("Dial Water Tempreture released!");
+                                 console.log("Dial Stain Level released!");
                              }
                          }
                      }
@@ -2285,8 +2271,8 @@ Rectangle{
                              anchors.fill: parent
 
                          property real dialValue: 90 // Initial value
-                property real col_washTimeinCottPageX : col_washTimeinLightPage.width / 2 + col_washTimeinCottPage.x; // Center of the button
-                property real col_washTimeinCottPageY : col_washTimeinLightPage.height / 2 + col_washTimeinCottPage.y; // Center of the button
+                property real col_washTimeinCottPageX : col_washTimeinLightPage.width / 2 + col_washTimeinLightPage.x; // Center of the button
+                property real col_washTimeinCottPageY : col_washTimeinLightPage.height / 2 + col_washTimeinLightPage.y; // Center of the button
 
 
 
@@ -2499,13 +2485,13 @@ Rectangle{
                  }
 
                 Column{
-                     id:col_waterTempretureinLightPage
+                     id:col_stainLevelinLightPage
                      width:250
                      anchors.left:col_waterLevelinLightPage.right
                      anchors.bottom: col_waterLevelinLightPage.bottom
                      spacing: 20
                      Text {
-                         text: "Water Tempreture"
+                         text: "Stain Level"
                          font.pixelSize: 20
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -2520,7 +2506,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterTempretureinLightPage
+                             id:dialstainLevelinLightPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -2545,7 +2531,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterTempretureinLightPage
+                                     id:numberDisplaystainLevelinLightPage
                                      anchors.centerIn: parent
                                      text: "2"
                                      font.pixelSize: 25
@@ -2557,27 +2543,27 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterTempretureinLightPage
+                             id: dialAreastainLevelinLightPage
                              anchors.fill: parent
 
                              property real dialValue: 2 // Initial value
 
                              onPressed: {
-                                 console.log("Dial Water Tempreture pressed!")
+                                 console.log("Dial Stain Level pressed!")
                              }
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterTempretureinLightPage.width / 2) {
+                                 if (mouse.x > dialstainLevelinLightPage.width / 2) {
                                      dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
                                  } else {
                                      dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempretureinLightPage.text = dialValue ; // Update display
+                                 numberDisplaystainLevelinLightPage.text = dialValue ; // Update display
                              }
 
                              onReleased: {
-                                 console.log("Dial Water Tempreture released!");
+                                 console.log("Dial Stain Level released!");
                              }
                          }
                      }
@@ -2910,13 +2896,13 @@ Rectangle{
                  }
 
                 Column{
-                     id:col_waterTempretureinDelicatePage
+                     id:col_stainLevelinDelicatePage
                      width:250
                      anchors.left:col_waterLevelinDelicatePage.right
                      anchors.bottom: col_waterLevelinDelicatePage.bottom
                      spacing: 20
                      Text {
-                         text: "Water Tempreture"
+                         text: "Stain Level"
                          font.pixelSize: 20
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -2931,7 +2917,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterTempretureinDelicatePage
+                             id:dialstainLevelinDelicatePage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -2956,7 +2942,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterTempretureinDelicatePage
+                                     id:numberDisplaystainLevelinDelicatePage
                                      anchors.centerIn: parent
                                      text: "2"
                                      font.pixelSize: 25
@@ -2968,27 +2954,27 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterTempretureinDelicatePage
+                             id: dialAreastainLevelinDelicatePage
                              anchors.fill: parent
 
                              property real dialValue: 2 // Initial value
 
                              onPressed: {
-                                 console.log("Dial Water Tempreture pressed!")
+                                 console.log("Dial Stain Level pressed!")
                              }
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterTempretureinDelicatePage.width / 2) {
+                                 if (mouse.x > dialstainLevelinDelicatePage.width / 2) {
                                      dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
                                  } else {
                                      dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempretureinDelicatePage.text = dialValue ; // Update display
+                                 numberDisplaystainLevelinDelicatePage.text = dialValue ; // Update display
                              }
 
                              onReleased: {
-                                 console.log("Dial Water Tempreture released!");
+                                 console.log("Dial Stain Level released!");
                              }
 
                      }
@@ -3113,8 +3099,8 @@ Rectangle{
                              anchors.fill: parent
 
                          property real dialValue: 90 // Initial value
-                property real col_washTimeinCottPageX : col_washTimeinJeansPage.width / 2 + col_washTimeinCottPage.x; // Center of the button
-                property real col_washTimeinCottPageY : col_washTimeinJeansPage.height / 2 + col_washTimeinCottPage.y; // Center of the button
+                property real col_washTimeinCottPageX : col_washTimeinJeansPage.width / 2 + col_washTimeinJeansPage.x; // Center of the button
+                property real col_washTimeinCottPageY : col_washTimeinJeansPage.height / 2 + col_washTimeinJeansPage.y; // Center of the button
 
 
 
@@ -3328,13 +3314,13 @@ Rectangle{
                  }
 
                 Column{
-                     id:col_waterTempretureinJeansPage
+                     id:col_stainLevelinJeansPage
                      width:250
                      anchors.left:col_waterLevelinJeansPage.right
                      anchors.bottom: col_waterLevelinJeansPage.bottom
                      spacing: 20
                      Text {
-                         text: "Water Tempreture"
+                         text: "Stain Level"
                          font.pixelSize: 20
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -3349,7 +3335,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterTempretureinJeansPage
+                             id:dialstainLevelinJeansPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -3374,7 +3360,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterTempretureinJeansPage
+                                     id:numberDisplaystainLevelinJeansPage
                                      anchors.centerIn: parent
                                      text: "2"
                                      font.pixelSize: 25
@@ -3386,27 +3372,27 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterTempretureinJeansPage
+                             id: dialAreastainLevelinJeansPage
                              anchors.fill: parent
 
                              property real dialValue: 2 // Initial value
 
                              onPressed: {
-                                 console.log("Dial Water Tempreture pressed!")
+                                 console.log("Dial Stain Level pressed!")
                              }
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterTempretureinJeansPage.width / 2) {
+                                 if (mouse.x > dialstainLevelinJeansPage.width / 2) {
                                      dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
                                  } else {
                                      dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempretureinJeansPage.text = dialValue ; // Update display
+                                 numberDisplaystainLevelinJeansPage.text = dialValue ; // Update display
                              }
 
                              onReleased: {
-                                 console.log("Dial Water Tempreture released!");
+                                 console.log("Dial Stain Level released!");
                              }
                          }
                      }
@@ -3531,8 +3517,8 @@ Rectangle{
                              anchors.fill: parent
 
                          property real dialValue: 90 // Initial value
-                property real col_washTimeinCottPageX : col_washTimeinJeansPage.width / 2 + col_washTimeinCottPage.x; // Center of the button
-                property real col_washTimeinCottPageY : col_washTimeinWoolPage.height / 2 + col_washTimeinCottPage.y; // Center of the button
+                property real col_washTimeinCottPageX : col_washTimeinWhitePage.width / 2 + col_washTimeinWhitePage.x; // Center of the button
+                property real col_washTimeinCottPageY : col_washTimeinWhitePage.height / 2 + col_washTimeinWhitePage.y; // Center of the button
 
 
 
@@ -3746,13 +3732,13 @@ Rectangle{
                  }
 
                 Column{
-                     id:col_waterTempretureinWhitePage
+                     id:col_stainLevelinWhitePage
                      width:250
                      anchors.left:col_waterLevelinWhitePage.right
                      anchors.bottom: col_waterLevelinWhitePage.bottom
                      spacing: 20
                      Text {
-                         text: "Water Tempreture"
+                         text: "Stain Level"
                          font.pixelSize: 20
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -3767,7 +3753,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterTempretureinWhitePage
+                             id:dialstainLevelinWhitePage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -3792,7 +3778,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterTempretureinWhitePage
+                                     id:numberDisplaystainLevelinWhitePage
                                      anchors.centerIn: parent
                                      text: "2"
                                      font.pixelSize: 25
@@ -3804,27 +3790,27 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterTempretureinWhitePage
+                             id: dialAreastainLevelinWhitePage
                              anchors.fill: parent
 
                              property real dialValue: 2 // Initial value
 
                              onPressed: {
-                                 console.log("Dial Water Tempreture pressed!")
+                                 console.log("Dial Stain Level pressed!")
                              }
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterTempretureinWhitePage.width / 2) {
+                                 if (mouse.x > dialstainLevelinWhitePage.width / 2) {
                                      dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
                                  } else {
                                      dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempretureinWhitePage.text = dialValue ; // Update display
+                                 numberDisplaystainLevelinWhitePage.text = dialValue ; // Update display
                              }
 
                              onReleased: {
-                                 console.log("Dial Water Tempreture released!");
+                                 console.log("Dial Stain Level released!");
                              }
                          }
                      }
@@ -3949,8 +3935,8 @@ Rectangle{
                              anchors.fill: parent
 
                          property real dialValue: 90 // Initial value
-                property real col_washTimeinCottPageX : col_washTimeinSportsWearPage.width / 2 + col_washTimeinCottPage.x; // Center of the button
-                property real col_washTimeinCottPageY : col_washTimeinSportsWearPage.height / 2 + col_washTimeinCottPage.y; // Center of the button
+                property real col_washTimeinCottPageX : col_washTimeinSportsWearPage.width / 2 + col_washTimeinSportsWearPage.x; // Center of the button
+                property real col_washTimeinCottPageY : col_washTimeinSportsWearPage.height / 2 + col_washTimeinSportsWearPage.y; // Center of the button
 
 
 
@@ -4163,13 +4149,13 @@ Rectangle{
                  }
 
                 Column{
-                     id:col_waterTempretureinSportsWearPage
+                     id:col_stainLevelinSportsWearPage
                      width:250
                      anchors.left:col_waterLevelinSportsWearPage.right
                      anchors.bottom: col_waterLevelinSportsWearPage.bottom
                      spacing: 20
                      Text {
-                         text: "Water Tempreture"
+                         text: "Stain Level"
                          font.pixelSize: 20
                          color: "white"
                          horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -4184,7 +4170,7 @@ Rectangle{
                          // Circular Progress Indicator
 
                          Rectangle {
-                             id:dialWaterTempretureinSportsWearPage
+                             id:dialstainLevelinSportsWearPage
                              anchors.centerIn: parent
                              width: 200
                              height: 200
@@ -4209,7 +4195,7 @@ Rectangle{
                                 // border.width: 8
                                  color: "#194767"
                                  Text {
-                                     id:numberDisplayWaterTempretureinSportsWearPage
+                                     id:numberDisplaystainLevelinSportsWearPage
                                      anchors.centerIn: parent
                                      text: "2"
                                      font.pixelSize: 25
@@ -4221,27 +4207,27 @@ Rectangle{
                          }
                          // Interaction Logic
                          MouseArea {
-                             id: dialAreaWaterTempretureinSportsWearPage
+                             id: dialAreastainLevelinSportsWearPage
                              anchors.fill: parent
 
                              property real dialValue: 2 // Initial value
 
                              onPressed: {
-                                 console.log("Dial Water Tempreture pressed!")
+                                 console.log("Dial Stain Level pressed!")
                              }
 
                              onPositionChanged: {
                                  // Simple increment/decrement based on mouse movement
-                                 if (mouse.x > dialWaterTempretureinSportsWearPage.width / 2) {
+                                 if (mouse.x > dialstainLevelinSportsWearPage.width / 2) {
                                      dialValue = Math.min(15, dialValue + 1); // Max 120 minutes
                                  } else {
                                      dialValue = Math.max(0, dialValue - 1);   // Min 0 minutes
                                  }
-                                 numberDisplayWaterTempretureinSportsWearPage.text = dialValue ; // Update display
+                                 numberDisplaystainLevelinSportsWearPage.text = dialValue ; // Update display
                              }
 
                              onReleased: {
-                                 console.log("Dial Water Tempreture released!");
+                                 console.log("Dial Stain Level released!");
                              }
                          }
                      }
@@ -4287,14 +4273,14 @@ Rectangle{
            }
         onClicked: {
             cottonPage.visible = false;
-            flickableContentCottonPage.visible = true;
+            flickableContentBaseCottonPage.visible = true;
         }
 
     }
 
-        Column
+    Column
         {
-            id:colButtons1
+            id:colButtons1InCottPage
             width:120
           //  height:350
             Layout.alignment:Qt.AlignLeft
@@ -4303,11 +4289,11 @@ Rectangle{
             anchors.right: parent.right
             anchors.rightMargin: 20
             anchors.leftMargin: 20
-            anchors.top: rec_time.top
+            anchors.top: rec_timeInCottPage.top
 
             Button
                 {
-                    id:btn_spin
+                    id:btn_spinInCottPage
                     width:120
                     height:100
                     contentItem: Text {
@@ -4324,7 +4310,7 @@ Rectangle{
                     anchors.margins: 10  // Optional: Add a margin from the top
 
                     background: Rectangle {
-                        id:btn_back_spin
+                        id:btn_back_spinInCottPage
                          color: buttonSpinClicked ? "#305733" : "#1F3D51"
                            radius: 8
                            anchors.fill: parent
@@ -4338,7 +4324,7 @@ Rectangle{
 
             Button
             {
-                id:btn_ExtraSpin
+                id:btn_ExtraSpinInCottPage
                 width:120
                 height:100
                 contentItem: Text {
@@ -4358,7 +4344,7 @@ Rectangle{
 
 
                 background: Rectangle {
-                    id:btn_back_extraSpin
+                    id:btn_back_extraSpinInCottPage
                     color: buttonExtraSpinClicked ? "#305733" : "#1F3D51"
                        radius: 8
                        anchors.fill: parent
@@ -4370,7 +4356,7 @@ Rectangle{
 
             Button
             {
-                id:btn_tubClean
+                id:btn_tubCleanInCottPage
                 width:120
                 height:100
                 contentItem: Text {
@@ -4388,7 +4374,7 @@ Rectangle{
                 anchors.margins: 10  // Optional: Add a margin from the top
 
                 background: Rectangle {
-                    id:btn_back_tubClean
+                    id:btn_back_tubCleanInCottPage
                     color: buttonTubCleanClicked ? "#305733" : "#1F3D51"
                        radius: 8
                        anchors.fill: parent
@@ -4399,21 +4385,21 @@ Rectangle{
             }
         }
 
-        Column
+    Column
         {
-            id:colButtons2
+            id:colButtons2InCottPage
             width:120
            //height:350
             Layout.alignment:Qt.AlignRight
             spacing: 20
-            anchors.right: colButtons1.left
-            anchors.top: rec_time.top
+            anchors.right: colButtons1InCottPage.left
+            anchors.top: rec_timeInCottPage.top
             anchors.rightMargin: 20
             anchors.leftMargin: 20
 
             Button
             {
-                id:btn_rinse
+                id:btn_rinseInCottPage
                 width:120
                 height:100
                 contentItem: Text {
@@ -4432,7 +4418,7 @@ Rectangle{
                 anchors.margins: 10  // Optional: Add a margin from the top
 
                 background: Rectangle {
-                    id:btn_back_rinse
+                    id:btn_back_rinseInCottPage
                     color: buttonRinseClicked ? "#305733" : "#1F3D51"
                        radius: 8
                        anchors.fill: parent
@@ -4444,7 +4430,7 @@ Rectangle{
 
             Button
             {
-                id:btn_Soak
+                id:btn_SoakInCottPage
                 width:120
                 height:100
                 contentItem: Text {
@@ -4462,7 +4448,7 @@ Rectangle{
                 anchors.margins: 10  // Optional: Add a margin from the top
 
                 background: Rectangle {
-                    id:btn_back_soak
+                    id:btn_back_soakInCottPage
                     color: buttonSoakClicked ? "#305733" : "#1F3D51"
                        radius: 8
                        anchors.fill: parent
@@ -4474,7 +4460,7 @@ Rectangle{
 
             Button
             {
-                id:btn_DelayStart
+                id:btn_DelayStartInCottPage
                 width:120
                 height:100
                 contentItem: Text {
@@ -4493,7 +4479,7 @@ Rectangle{
 
 
                 background: Rectangle {
-                    id:btn_back_delayStart
+                    id:btn_back_delayStartInCottPage
                     color: buttonDelayStartClicked? "#305733" : "#1F3D51"
                        radius: 8
                        anchors.fill: parent
@@ -4509,7 +4495,7 @@ Rectangle{
 
 
     Rectangle {
-        id: rec_time
+        id: rec_timeInCottPage
         width: 220
         height: 200
         gradient: Gradient {
@@ -4527,11 +4513,11 @@ Rectangle{
 
         // Display the Timer in the Center
         Text {
-            id: timerText
+            id: timerTextInCottPage
             anchors.centerIn: parent
             font.pixelSize: 64
             color: "white"
-            text: numberDisplaywashTimeinCottPage.text  // Initial text, updated in C++
+            text: numberDisplaywashTimeinBaseCottPage.text  // Initial text, updated in C++
 
             // Font styling (use a bold and thick font similar to the image)
             font.bold: true
@@ -4544,10 +4530,10 @@ Rectangle{
 
     Button
     {
-        id :btn_cotton
+        id :btn_cottonInCottPage
         width:240
         height:200
-        anchors.left: rec_time
+        anchors.left: rec_timeInCottPage
         anchors.top: parent.top
         anchors.topMargin: 100
         anchors.leftMargin: 20
@@ -4591,14 +4577,14 @@ Rectangle{
 
     Row
     {
-        id:row_progressBar
+        id:row_progressBarInCottPage
         width: 480
          anchors.bottom: parent.bottom
          anchors.bottomMargin: 50
          anchors.leftMargin: 20
          spacing: 20
          Column{
-             id:col_washTime
+             id:col_washTimeInCottPage
              width:120
              anchors.left: parent.left
              spacing: 20
@@ -4618,7 +4604,7 @@ Rectangle{
                  // Circular Progress Indicator
 
                  Rectangle {
-                     id:dial
+                     id:dialWashTimeInCottPage
                      anchors.centerIn: parent
                      width: 100
                      height: 100
@@ -4643,9 +4629,9 @@ Rectangle{
                         // border.width: 8
                          color: "#194767"
                          Text {
-                             id:numberDisplay
+                             id:numberDisplayWashTimeInCottPage
                              anchors.centerIn: parent
-                             text: numberDisplaywashTimeinCottPage.text
+                             text: numberDisplaywashTimeinBaseCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -4661,9 +4647,9 @@ Rectangle{
          }
 
          Column{
-             id:col_waterTemp
+             id:col_waterTempInCottPage
              width:100
-             anchors.left: col_washTime.right
+             anchors.left: col_washTimeInCottPage.right
              spacing: 20
              Text {
                  text: "Water Temp"
@@ -4681,7 +4667,7 @@ Rectangle{
                  // Circular Progress Indicator
 
                  Rectangle {
-                     id:dialWaterTemp
+                     id:dialWaterTempInCottPage
                      anchors.centerIn: parent
                      width: 100
                      height: 100
@@ -4706,9 +4692,9 @@ Rectangle{
                         // border.width: 8
                          color: "#194767"
                          Text {
-                             id:numberDisplayWaterTemp
+                             id:numberDisplayWaterTempInCottPage
                              anchors.centerIn: parent
-                             text: numberDisplayWaterTempinCottPage.text
+                             text: numberDisplayWaterTempinBaseCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -4724,9 +4710,9 @@ Rectangle{
          }
 
          Column{
-             id:col_waterLevel
+             id:col_waterLevelInCottPage
              width:120
-             anchors.left: col_waterTemp.right
+             anchors.left: col_waterTempInCottPage.right
              spacing: 20
              Text {
                  text: "Water Level"
@@ -4744,7 +4730,7 @@ Rectangle{
                  // Circular Progress Indicator
 
                  Rectangle {
-                     id:dialWaterLevel
+                     id:dialWaterLevelInCottPage
                      anchors.centerIn: parent
                      width: 100
                      height: 100
@@ -4769,9 +4755,9 @@ Rectangle{
                         // border.width: 8
                          color: "#194767"
                          Text {
-                             id:numberDisplayWaterLevel
+                             id:numberDisplayWaterLevelInCottPage
                              anchors.centerIn: parent
-                             text: numberDisplayWaterLevelinCottPage.text
+                             text: numberDisplayWaterLevelinBaseCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -4787,12 +4773,12 @@ Rectangle{
          }
 
          Column{
-             id:col_waterTempreture
+             id:col_stainLevelInCottPage
              width:120
-             anchors.left: col_waterLevel.right
+             anchors.left: col_waterLevelInCottPage.right
              spacing: 20
              Text {
-                 text: "Water Tempreture"
+                 text: "Stain Level"
                  font.pixelSize: 14
                  color: "white"
                  horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -4807,7 +4793,7 @@ Rectangle{
                  // Circular Progress Indicator
 
                  Rectangle {
-                     id:dialWaterTempreture
+                     id:dialstainLevelInCottPage
                      anchors.centerIn: parent
                      width: 100
                      height: 100
@@ -4832,9 +4818,9 @@ Rectangle{
                         // border.width: 8
                          color: "#194767"
                          Text {
-                             id:numberDisplayWaterTempreture
+                             id:numberDisplaystainLevelInCottPage
                              anchors.centerIn: parent
-                             text: numberDisplayWaterTempretureinCottPage.text
+                             text: numberDisplaystainLevelinBaseCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -4850,10 +4836,10 @@ Rectangle{
     Button{
         id:btn_GoinCottPage
         anchors.bottom: parent.bottom
-        anchors.right: colButtons1.right
+        anchors.right: colButtons1InCottPage.right
         anchors.bottomMargin: 20
         anchors.rightMargin: 50
-        anchors.top:colButtons1.bottom
+        anchors.top:colButtons1InCottPage.bottom
         anchors.topMargin: 20
 
         contentItem: Text {
@@ -4906,10 +4892,10 @@ Rectangle{
             repeat: true
             running: true
 
-            property int totalSeconds:dialValuewashTimeInCottonPage * 60 + 59  // Start time: 89 minutes 59 seconds
+            property int totalSeconds:(dialValuewashTimeInBaseCottonPage-1) * 60 + 59  // Start time: 89 minutes 59 seconds
 
             Component.onCompleted: {
-                    console.log("The value is:" + dialValuewashTimeInCottonPage);
+                    console.log("The value is:" + dialValuewashTimeInBaseCottonPage);
                 }
             onTriggered: {
                 if (totalSeconds > 0) {
@@ -5300,7 +5286,7 @@ Rectangle{
                          Text {
                              id:numberDisplayIngoPageforCottPage
                              anchors.centerIn: parent
-                             text: numberDisplaywashTimeinCottPage.text
+                             text: numberDisplaywashTimeinBaseCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -5363,7 +5349,7 @@ Rectangle{
                          Text {
                              id:numberDisplayWaterTempIngoPageforCottPage
                              anchors.centerIn: parent
-                             text: numberDisplayWaterTempinCottPage.text
+                             text: numberDisplayWaterTempinBaseCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -5426,7 +5412,7 @@ Rectangle{
                          Text {
                              id:numberDisplayWaterLevelIngoPageforCottPage
                              anchors.centerIn: parent
-                             text: numberDisplayWaterLevelinCottPage.text
+                             text: numberDisplayWaterLevelinBaseCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -5442,12 +5428,12 @@ Rectangle{
          }
 
          Column{
-             id:col_waterTempretureIngoPageforCottPage
+             id:col_stainLevelIngoPageforCottPage
              width:120
              anchors.left: col_waterLevelIngoPageforCottPage.right
              spacing: 20
              Text {
-                 text: "Water Tempreture"
+                 text: "Stain Level"
                  font.pixelSize: 14
                  color: "white"
                  horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -5462,7 +5448,7 @@ Rectangle{
                  // Circular Progress Indicator
 
                  Rectangle {
-                     id:dialWaterTempretureIngoPageforCottPage
+                     id:dialstainLevelIngoPageforCottPage
                      anchors.centerIn: parent
                      width: 100
                      height: 100
@@ -5487,9 +5473,9 @@ Rectangle{
                         // border.width: 8
                          color: "#194767"
                          Text {
-                             id:numberDisplayWaterTempretureIngoPageforCottPage
+                             id:numberDisplaystainLevelIngoPageforCottPage
                              anchors.centerIn: parent
-                             text:numberDisplayWaterTempretureinCottPage.text
+                             text:numberDisplaystainLevelinBaseCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -5505,7 +5491,7 @@ Rectangle{
 
 }
 
-   /*
+
     Rectangle {
     id:woolPage
     width:800
@@ -5545,7 +5531,7 @@ Rectangle{
            }
         onClicked: {
             woolPage.visible = false;
-            flickableContentWoolPage.visible = true;
+            flickableContentBaseWoolPage.visible = true;
         }
 
     }
@@ -5789,7 +5775,7 @@ Rectangle{
             anchors.centerIn: parent
             font.pixelSize: 64
             color: "white"
-            text: numberDisplayinWoolPage.text  // Initial text, updated in C++
+            text: numberDisplayWashTimeinBaseWoolPage.text  // Initial text, updated in C++
 
             // Font styling (use a bold and thick font similar to the image)
             font.bold: true
@@ -5872,7 +5858,7 @@ Rectangle{
                  // Circular Progress Indicator
 
                  Rectangle {
-                     id:dialInWoolPage
+                     id:dialWashTimeInWoolPage
                      anchors.centerIn: parent
                      width: 100
                      height: 100
@@ -5897,9 +5883,9 @@ Rectangle{
                         // border.width: 8
                          color: "#194767"
                          Text {
-                             id:numberDisplayInWoolPage
+                             id:numberDisplayWashTimeInWoolPage
                              anchors.centerIn: parent
-                             text: numberDisplayInWoolPage.text
+                             text: numberDisplayWashTimeinBaseWoolPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -5962,7 +5948,7 @@ Rectangle{
                          Text {
                              id:numberDisplayWaterTempInWoolPage
                              anchors.centerIn: parent
-                             text: numberDisplayWaterTempInWoolPage.text
+                             text: numberDisplayWaterTempinBaseWoolPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -6025,7 +6011,7 @@ Rectangle{
                          Text {
                              id:numberDisplayWaterLevelInWoolPage
                              anchors.centerIn: parent
-                             text: numberDisplayWaterLevelInWoolPage.text
+                             text: numberDisplayWaterLevelinBaseWoolPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -6041,12 +6027,12 @@ Rectangle{
          }
 
          Column{
-             id:col_waterTempretureInWoolPage
+             id:col_stainLevelInWoolPage
              width:120
              anchors.left: col_waterLevelInWoolPage.right
              spacing: 20
              Text {
-                 text: "Water Tempreture"
+                 text: "Stain Level"
                  font.pixelSize: 14
                  color: "white"
                  horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -6061,7 +6047,7 @@ Rectangle{
                  // Circular Progress Indicator
 
                  Rectangle {
-                     id:dialWaterTempretureInWoolPage
+                     id:dialstainLevelInWoolPage
                      anchors.centerIn: parent
                      width: 100
                      height: 100
@@ -6086,9 +6072,9 @@ Rectangle{
                         // border.width: 8
                          color: "#194767"
                          Text {
-                             id:numberDisplayWaterTempretureInWoolPage
+                             id:numberDisplaystainLevelInWoolPage
                              anchors.centerIn: parent
-                             text: numberDisplayWaterTempretureInWoolPage.text
+                             text: numberDisplaystainLevelinBaseWoolPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -6100,9 +6086,10 @@ Rectangle{
              }
          }
     }
-/*
+
+    
     Button{
-        id:btn_GoinCottPageInWoolPage
+        id:btn_GoinWoolPageInWoolPage
         anchors.bottom: parent.bottom
         anchors.right: colButtons1InWoolPage.right
         anchors.bottomMargin: 20
@@ -6136,7 +6123,7 @@ Rectangle{
 
         onClicked: {
             woolPage.visible = false;
-            //goPageforWoolPage.visible = true;
+            goPageforWoolPage.visible = true;
         }
     }
 
@@ -6160,14 +6147,14 @@ Rectangle{
             repeat: true
             running: true
 
-            property int totalSeconds:90 * 60 + 59  // Start time: 89 minutes 59 seconds
+            property int totalSeconds:89* 60 + 59  // Start time: 89 minutes 59 seconds
             onTriggered: {
                 if (totalSeconds > 0) {
                     totalSeconds--;  // Decrement total seconds
                     var minutes = Math.floor(totalSeconds / 60);
                     var secs = totalSeconds % 60;
                     var seconds = ( minutes) + ":" +  secs
-                    timerTextIngoPageforCottPage.text = seconds;
+                    timerTextIngoPageforWoolPage.text = seconds;
                 } else {
                     countdownTimer.stop();  // Stop the timer when finished
                 }
@@ -6202,8 +6189,8 @@ Rectangle{
             anchors.fill: parent
            }
         onClicked: {
-            cottonPage.visible = true;
-            goPageforCottPage.visible = false;
+            woolPage.visible = true;
+            goPageforWoolPage.visible = false;
         }
 
     }
@@ -6552,7 +6539,7 @@ Rectangle{
                          Text {
                              id:numberDisplayIngoPageforWoolPage
                              anchors.centerIn: parent
-                             text: numberDisplayinCottPage.text
+                             text: numberDisplaywashTimeinBaseCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -6615,7 +6602,7 @@ Rectangle{
                          Text {
                              id:numberDisplayWaterTempIngoPageforWoolPage
                              anchors.centerIn: parent
-                             text: numberDisplayWaterTempinWoolPage.text
+                             text: numberDisplayWaterTempinBaseWoolPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -6678,7 +6665,7 @@ Rectangle{
                          Text {
                              id:numberDisplayWaterLevelIngoPageforWoolPage
                              anchors.centerIn: parent
-                             text: numberDisplayWaterLevelinCottPage.text
+                             text: numberDisplayWaterLevelinBaseCottPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -6694,12 +6681,12 @@ Rectangle{
          }
 
          Column{
-             id:col_waterTempretureIngoPageforWoolPage
+             id:col_stainLevelIngoPageforWoolPage
              width:120
              anchors.left: col_waterLevelIngoPageforWoolPage.right
              spacing: 20
              Text {
-                 text: "Water Tempreture"
+                 text: "Stain Level"
                  font.pixelSize: 14
                  color: "white"
                  horizontalAlignment: Text.AlignHCenter // Horizontally center the text
@@ -6714,7 +6701,7 @@ Rectangle{
                  // Circular Progress Indicator
 
                  Rectangle {
-                     id:dialWaterTempretureIngoPageforWoolPage
+                     id:dialstainLevelIngoPageforWoolPage
                      anchors.centerIn: parent
                      width: 100
                      height: 100
@@ -6739,9 +6726,9 @@ Rectangle{
                         // border.width: 8
                          color: "#194767"
                          Text {
-                             id:numberDisplayWaterTempretureIngoPageforWoolPage
+                             id:numberDisplaystainLevelIngoPageforWoolPage
                              anchors.centerIn: parent
-                             text:numberDisplayWaterTempretureinWoolPage.text
+                             text:numberDisplaystainLevelinBaseWoolPage.text
                              font.pixelSize: 18
                              horizontalAlignment: Text.AlignHCenter
                              verticalAlignment: Text.AlignVCenter
@@ -6756,7 +6743,6 @@ Rectangle{
 
 
 }
-   */
-}
 
+}
 
